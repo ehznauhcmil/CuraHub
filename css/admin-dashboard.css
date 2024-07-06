@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit');
+
+body {
+    font-family: 'Outfit', sans-serif;
+    background-color: #F1F1F1;
+    margin: 0px;
+}
+
+h3 {
+    font-size: 32px;
+    font-weight: 500;
+    color: #545454;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+}
+
+.admin-dashboard-header {
+    padding-left: 10%;
+    padding-right: 10%;
+    height: 100px;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.125);
+}
+
+.logo {
+    color: #008080;
+    font-size: 32px;
+    font-weight: 900;
+}
+
+.spacer {
+    flex-grow: 1; 
+}
+
+.profile-button {
+    border-radius: 20px;
+    border: 1px solid black;
+    font-size: 18px;
+    font-weight: 100;
+    padding: 12px;
+    padding-left: 35px;
+    padding-right: 35px;
+    background-color: white;
+}
+
+.admin-dashboard-body {
+    background-color: #ffffff;
+    margin-left: 10%;
+    margin-right: 10%;
+    display: flex;
+    flex-direction: row;
+}
+
+.admin-navbar {
+    display: flex; /* Change to flex */
+    flex-direction: column; /* Stack items vertically */
+    align-items: flex-start;
+    align-items: center;
+    border-right: 2px solid rgba(0, 0, 0, 0.125);
+    padding: 25px;
+    padding-top: 35px;
+}
+
+.menu-buttons {
+    display: flex;
+    background-color: #F3F3F3;
+    font-size: 18px;
+    width: 280px;
+    text-align: left; 
+    align-items: center; 
+    padding: 10px;
+    color: #838383;
+    border-style: unset;
+    margin-bottom: 35px;
+    border-radius: 10px;
+}
+
+.menu-buttons img {
+    width: 30px;
+    margin-right: 10px;
+}
+
+.logout-button {
+    border-radius: 20px;
+    background-color: #00C2C2;
+    border-style: unset;
+    color: white;
+    font-size: 18px;
+    padding: 10px;
+    padding-right: 35px;
+    padding-left: 35px;
+}
+
+.user-list {
+    display: flex;
+    flex-direction: column;
+    padding: 3%;
+    width: 100%;
+}
+
+.user-overview-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.overview-container, .user-detail-container {
+    display: flex;
+    background-color: #F3F3F3;
+    padding: 35px;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 5px;
+}
+
+.user-detail-container {
+    flex-direction: row;
+    padding: 20px;
+    padding-right: 35px;
+    padding-left: 35px;
+}
+
+.user-detail-container-fields span {
+    font-size: 24px; 
+    font-weight:lighter;
+    color: #545454;
+}
+
+.see-more-details {
+    font-size: 18px;
+    color: #00C2C2;
+}
