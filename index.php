@@ -1,4 +1,4 @@
 <?php
-    header("Location: admin-dashboard-profile.php");
+    header("Location: home-screen.php");
     exit;
 ?>
