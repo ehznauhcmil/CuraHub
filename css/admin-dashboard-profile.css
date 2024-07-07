@@ -17,6 +17,11 @@ h3 {
     flex-direction: column;
 }
 
+.row {
+    display: flex;
+    flex-direction: row;
+}
+
 .admin-dashboard-header {
     padding-left: 10%;
     padding-right: 10%;
@@ -80,10 +85,16 @@ h3 {
     border-radius: 10px;
 }
 
+.menu-buttons-selected {
+    background-color: #CCF3F3;
+    color: #007A7A;
+}
+
 .menu-buttons img {
     width: 30px;
     margin-right: 10px;
 }
+
 
 .logout-button {
     border-radius: 20px;
@@ -98,6 +109,7 @@ h3 {
 
 .user-list {
     display: flex;
+    /* display: none; */
     flex-direction: column;
     padding: 3%;
     width: 100%;
@@ -133,4 +145,62 @@ h3 {
 .see-more-details {
     font-size: 18px;
     color: #00C2C2;
+}
+
+.appointment-section {
+    display: none;
+    /* display: flex; */
+    flex-direction: column;
+    padding: 3%;
+    padding-top: 1%;
+    width: 100%;
+}
+
+.upcoming-section {
+    display: flex;
+    flex-direction: column; 
+}
+
+.appointment-fields span {
+    font-size: 18px;
+    color: #838383;
+    padding-right: 15%;
+}
+
+.details-container {
+    border-radius: 10px;
+    border: 2px solid rgba(0, 0, 0, 0.125);
+    padding: 10px;
+    margin-top: 10px ;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.status {
+    border-radius: 5px;
+    background-color: #BD0000;
+    color: white;
+    height: 30px;
+    align-items: center;
+    padding: 5px 20px 5px 20px;
+    display: flex;
+    align-items: center;
+}
+
+.expand-button {
+    background-color: #00C2C2;
+    opacity: 0.4;
+    border: none;
+    border-radius: 20px;
+    color: white;
+    margin-right: 40%;
+    margin-left: 40%;
+    box-shadow: 10px 10px;
+    padding: 5px;
+}
+
+.expand-button:hover {
+    opacity: 0.7;
 }
