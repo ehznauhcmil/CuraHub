@@ -3,7 +3,7 @@
 $serverhost = 'localhost';
 $username = 'root';
 $password = '';
-$database = 'curahub';
+$database = 'curahub_new';
 
 // This is where the connection is being created yea
 $connect = mysqli_connect($serverhost, $username, $password, $database);

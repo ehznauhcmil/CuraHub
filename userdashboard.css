@@ -1,0 +1,201 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background-color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration: none;
+    color: black;
+}
+
+/* SIDE BAR */
+
+.sidebar {
+    height: 100vh;
+    width: 180px;
+    top: 0;
+    bottom: 0;
+    position: fixed;
+    padding: 25px 65px;
+    background-color: #efefef;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.sidebar img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 20px;
+}
+
+.sidebar-navbottom img {
+    width: 50px;
+    height: 50px;
+}
+
+.sidebar a:hover {
+    opacity: 0.6;
+}
+
+.sidebar-navbottom a:hover {
+    opacity: 0.6;
+}
+
+/* MAIN CONTENT */
+
+main {
+    margin-left: 180px;
+    padding: 25px 100px 50px 100px;
+    box-sizing: border-box;
+}
+
+.user-greetings-container h1 {
+    font-size: 32px;
+}
+
+.user-greetings-container h2 {
+    font-size: 24px;
+}
+
+/* CHECKUP REMINDER */
+.checkup-reminder-container {
+    height: 100%;
+    width: 100%;
+    background-color: #00C2C2;
+    border-radius: 10px;
+    padding: 25px 80px;
+    margin-top: 30px;
+    display: flex;
+    box-sizing: border-box;
+}
+
+.checkup-reminder-left {
+    flex: 70%;
+} 
+
+.checkup-reminder-right {
+    flex: 30%;
+}
+
+.checkup-reminder-right img {
+    position: absolute;
+    align-items: flex-end;
+    top: 0;
+    height: 450px;
+}
+
+.checkup-reminder-left h1, h4 {
+    color: white;
+}
+
+.checkup-reminder-left h4 {
+    font-weight: lighter;
+    font-size: 20px;
+}
+
+.checkup-reminder-left p {
+    font-size: 18px;
+    color: white;
+}
+
+.checkup-reminder-button {
+    margin: 30px 0 10px 0;
+    display: flex;
+    gap: 20px;
+}
+
+.check-now-button {
+    height: 45px;
+    width: 150px;
+    padding: 10px 15px;
+    background-color: white;
+    color: #5c5c5c;
+    font-size: 15px;
+    border-radius: 10px;
+    border: 0px solid #ffffff;
+    cursor: pointer;
+}
+
+.view-report-button {
+    height: 45px;
+    width: 150px;
+    padding: 10px 15px;
+    background-color: #00C2C2;
+    color: white;
+    font-size: 15px;
+    border-radius: 10px;
+    border: 1px solid #ffffff;
+    cursor: pointer;
+}
+
+.check-now-button:hover {
+    background-color: #e2e2e2;
+}
+
+.view-report-button:hover {
+    background-color: #00aeae;
+}
+
+/* UPCOMING CHECKUP & LAST CHECKUP ROW */
+
+.bottom-row {
+    width: 100%;
+    display: flex;
+    margin-top: 30px;
+    justify-content: space-between;
+    gap: 50px;
+}
+
+.upcoming-checkup-container, .last-checkup-container {
+    height: 100%;
+    flex: 50%;
+    background-color: #f8f8f8;
+    border-radius: 10px;
+    padding: 15px 45px;
+    box-sizing: border-box; 
+}
+
+.upcoming-checkup-container h2, .last-checkup-container h2 {
+    margin-bottom: 30px;
+}
+
+.upcoming-checkup-list, .last-checkup-list {
+    display: flex;
+    padding-bottom: 20px;
+    gap: 30px
+}
+
+.upcoming-checkup-list .list-details h3, .last-checkup-list .list-details h3 {
+    font-size: 20px;
+}
+
+.upcoming-checkup-container p, .last-checkup-container p {
+    color: black;
+    font-size: 18px;
+}
+
+.upcoming-checkup-list .list-details, .last-checkup-list .list-details {
+    line-height: 95%;
+}
+
+/* UPCOMING CHECKUP */
+
+.upcoming-checkup-list .list-date {
+    background-color: #e2e2e2;
+    line-height: 40%;
+    text-align: center;
+    width: 80px;
+    height: 80px;
+    border-radius: 10px;
+    padding: 10px 5px 0;
+}
+
+/* LAST CHECKUP */
+
+.last-checkup-list img {
+    height: 90px;
+    width: 90px;
+}
