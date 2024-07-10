@@ -4,7 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/general.css">
     <link rel="stylesheet" href="css/user-login.css">
     <title>Login</title>
 </head>
@@ -20,19 +19,27 @@
                 </div>
 
                 <form class="login-form" action="index.php" method="POST">
-                    <input type="email" id="email" placeholder="E-mail" name="email" autocomplete="off"><br />
-
-                    <input type="password" id="password" name="password" placeholder="Password"
+                    <label for="email">Email Address:</label>
+                    <input type="email" id="email" placeholder="Enter Your Email Address" name="email"
                         autocomplete="off"><br />
 
-                    <div class="buttons">
-                        <button type="submit" id="login-button">Login</button><br /><br />
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" placeholder="********************"
+                        autocomplete="off"><br />
 
-                        <a href="signup.php"> <button type="button" id="signup-button">Sign Up</button>
-                        </a><br /><br />
+                    <button type="submit" id="login-button">LOGIN ACCOUNT</button><br /><br />
+                    <div class="signup-link">
+                        <p>
+                            Don't you have any account? <a href="user-signup.php"> Sign Up Here</a>
+                        </p>
                     </div>
+
                 </form>
+
             </div>
+
+
+
 
         </div>
         <div class="illustration-side">
