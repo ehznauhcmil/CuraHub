@@ -2,7 +2,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "profile_management";
+$dbname = "curahub";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
