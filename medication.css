@@ -1,0 +1,91 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background-color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration: none;
+    color: black;
+}
+
+main p {
+    font-size: 18px;
+}
+
+/* SIDE BAR */
+
+.sidebar {
+    height: 100vh;
+    width: 180px;
+    top: 0;
+    bottom: 0;
+    position: fixed;
+    padding: 25px 65px;
+    background-color: #efefef;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.sidebar img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 20px;
+}
+
+.sidebar-navbottom img {
+    width: 50px;
+    height: 50px;
+}
+
+.sidebar a:hover {
+    opacity: 0.6;
+}
+
+.sidebar-navbottom a:hover {
+    opacity: 0.6;
+}
+
+/* MAIN CONTENT */
+
+main {
+    margin-left: 180px;
+    padding: 50px 100px 50px 100px;
+    box-sizing: border-box;
+}
+
+.past-appointment-prescriptions-container {
+    background-color: #f8f8f8;
+    border-radius: 15px;
+    padding: 15px 50px;
+    height: 100%;
+}
+
+.past-appointment-prescription-card {
+    background-color: white;
+    border-radius: 15px;
+    padding: 15px 50px;
+    margin: 25px 0;
+}
+
+.card-content {
+    display: flex;
+}
+
+.left{
+    flex: 50%;
+}
+
+.right {
+    flex: 50%;
+}
+
+.vertical-divider {
+    margin: 0 30px;;
+}
+
+.left li, .right li {
+    margin-left: -20px;
+}
