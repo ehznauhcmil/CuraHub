@@ -1,0 +1,214 @@
+body {
+  background-image: url('1.jpg');
+  font-family: Arial, sans-serif;
+  direction: ltr;
+  text-align: left;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+  transition: background-color 0.3s;
+}
+
+body:hover {
+  background-color: #e2e2e2;
+}
+
+.container {
+  max-width: 800px;
+  margin: 50px auto;
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.profile-container {
+  display: flex;
+  align-items: flex-start;
+  background-color: #fff;
+  padding: 20px;
+  box-shadow: 10px 10px 10px gray;
+  border-radius: 15px;
+  margin-bottom: 20px;
+}
+
+.profile-picture {
+  height: 150px;
+  width: 150px;
+  border-radius: 75px;
+  border: 3px solid blue;
+  box-shadow: 8px 8px 8px #797979;
+  margin-right: 20px;
+}
+
+.profile-details {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-details-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.profile-details-row div {
+  flex: 1;
+  margin-right: 20px;
+}
+
+.profile-details-row div:last-child {
+  margin-right: 0;
+}
+
+.profile-details h2 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.profile-details p {
+  margin: 5px 0;
+  color: #666;
+}
+
+.profile-button {
+  padding: 10px 20px;
+  background-color: blue;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  align-self: flex-start;
+  transition: background-color 0.3s, transform 0.3s;
+  margin: 5px 0;
+}
+
+.profile-button:hover {
+  background-color: darkblue;
+  transform: scale(1.05);
+}
+
+.files-payments-container {
+  display: flex;
+  justify-content: space-between;
+  background-color: #fff;
+  padding: 20px;
+  box-shadow: 10px 10px 10px gray;
+  border-radius: 15px;
+}
+
+.files-container,
+.payments-container {
+  flex: 1;
+  margin-right: 20px;
+}
+
+.files-container:last-child {
+  margin-right: 0;
+}
+
+.files-container h3,
+.payments-container h3 {
+  margin-top: 0;
+}
+
+.files-container label {
+  display: block;
+  margin: 10px 0;
+}
+
+.payments-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.payments-table th, .payments-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.payments-table th {
+  background-color: #f2f2f2;
+}
+
+.form-row {
+  margin-bottom: 15px;
+}
+
+textarea, input[type="date"], input[type="text"], input[type="file"] {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+textarea:focus, input[type="date"]:focus, input[type="text"]:focus, input[type="file"]:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.visits-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0 auto;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.visits-table th, .visits-table td {
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: left;
+}
+
+.visits-table th {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.visits-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.visits-table tr:hover {
+  background-color: #d1d1d1;
+  transition: background-color 0.3s;
+}
+
+label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.form-row input, .form-row textarea {
+  transition: all 0.3s ease;
+}
+
+.form-row input:focus, .form-row textarea:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.button-container button {
+  margin: 5px 0;
+}
