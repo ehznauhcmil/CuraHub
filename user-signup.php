@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/user-login.css">
+    <link rel="stylesheet" href="css/user-signup.css">
     <title>User Sign Up</title>
 </head>
 
@@ -26,6 +26,22 @@
                     <label for="password">Password:</label>
                     <input type="password" id="password" name="password" placeholder="********************"
                         autocomplete="off"><br />
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" placeholder="********************"
+                        autocomplete="off"><br />
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" placeholder="********************"
+                        autocomplete="off"><br />
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" placeholder="********************"
+                        autocomplete="off"><br />
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" placeholder="********************"
+                        autocomplete="off"><br />
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" placeholder="********************"
+                        autocomplete="off"><br />
+
 
                     <button type="submit" id="login-button">LOGIN ACCOUNT</button><br /><br />
                     <div class="signup-link">

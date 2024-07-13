@@ -26,13 +26,14 @@ $connect->close();
 <body>
     <div class="main">
         <div class="doctor-selection">
-            <div class="search"></div>
+            <h2>Search for a doctor in our partner facilities</h2>
+            <input type="text" id="searchInput" placeholder="Search doctors...">
+
             <div class="doctor-list">
-                <?php foreach ($items as $item): ?>
-                    <div class="list-item">
+                <?php foreach ($items as $index => $item): ?>
+                    <div class="list-item" data-index="<?php echo $index; ?>">
                         <h3><?php echo $item["first_name"] . " " . $item["last_name"]; ?></h3>
                         <p><?php echo $item["specialization"]; ?></p>
-                        <p><?php echo $item["contact"]; ?></p>
 
                     </div>
                 <?php endforeach; ?>
@@ -48,6 +49,8 @@ $connect->close();
 
 <footer>
     <script src="js/doctors-selected.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="js/doctors-filter.js"></script>
 </footer>
 
 </html>
