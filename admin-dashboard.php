@@ -3,15 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="css/admin-dashboard-profile.css">
+    <link rel="stylesheet" type="text/css" href="css/admin-dashboard.css">
     <script src="https://kit.fontawesome.com/cdbb8fb667.js" crossorigin="anonymous"></script>
     <title>Admin Dashboard</title>
 </head>
 <body>
     <div class = "admin-dashboard-header">
-        <span class = "logo">
-            CuraHub
-        </span>
+        <a href="home-screen.php" class = "logo">CuraHub</a>
         <div class = "spacer"></div>
         <h3>
             Admin Dashboard
@@ -174,7 +172,43 @@
         </div>
 
         <!-- register provider -->
-        <div class= "appointment-section" id = "register">
+        <div class= "register" id = "register">
+            <h1>Register Healthcare Provider</h1>
+            <form action="admin-dashboard/register-provider.php" class = "register-form" method = "post" id = "register-form">
+                <div class = "register-healthcare-grid">
+                    <div class = "fields">
+                        <h3>First Name</h3>
+                        <input type="text" id="first_name" name="first_name" 
+                            placeholder = "Type Something Here" required>
+                    </div>
+                    <div class = "fields">
+                        <h3>Last Name</h3>
+                        <input type="text" id="last_name" name="last_name" 
+                            placeholder = "Type Something Here" required>
+                    </div>
+                    <div class = "fields">
+                        <h3>Specialization</h3>
+                        <input type="text" id="specialization" name="specialization" 
+                            placeholder = "Type Something Here" required>
+                    </div>
+                    <div class = "fields">
+                        <h3>Qualification</h3>
+                        <input type="text" id="qualification" name="qualification" 
+                            placeholder = "Type Something Here" required>
+                    </div>
+                    <div class = "fields">
+                        <h3>University</h3>
+                        <input type="text" id="university" name="university" 
+                            placeholder = "Type Something Here" required>
+                    </div>
+                    <div class = "fields">
+                        <h3>Contact</h3>
+                        <input type="text" id="contact" name="contact" 
+                            placeholder = "Type Something Here" required>
+                    </div>
+                </div>
+                <input  type="submit" value = "Submit">
+            </form>
         </div>
     </div>
 

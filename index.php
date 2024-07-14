@@ -1,3 +1,8 @@
+<?php
+    header("Location: admin-dashboard.php");
+    exit;
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 

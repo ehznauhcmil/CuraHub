@@ -22,3 +22,4 @@ function selectNavItem(selectedNav) {
         document.getElementById('register-button').classList.add('menu-buttons-selected');
     }
 }
+
