@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Medications</title>
     <link rel="icon" href="resources/site-logo.png" type="image/png"> <!-- INSERT SITE LOGO -->
     <!-- IMPORT FILES -->
-    <link rel="stylesheet" href="medication.css">
+    <link rel="stylesheet" href="css/medication.css.css">
 </head>
 
 <body>
@@ -29,7 +30,7 @@
         <div class="past-appointment-prescriptions-container">
             <h2>Past Appointment Prescriptions</h2>
             <div class="scroller">
-                <div class="past-appointment-prescription-card">    
+                <div class="past-appointment-prescription-card">
                     <h2>21 June 2024 | Cough and Flu</h2>
                     <hr class="horizontal-divider">
                     <div class="card-content">
@@ -58,13 +59,13 @@
                     </div>
                 </div>
 
-                <div class="past-appointment-prescription-card">    
-                    <h2>13 April 2024  |  Gastritis</h2>
+                <div class="past-appointment-prescription-card">
+                    <h2>13 April 2024 | Gastritis</h2>
                     <hr class="horizontal-divider">
                     <div class="card-content">
                         <div class="left">
                             <p><strong>Type: </strong>Emergency Walk-in</p>
-                            <p><strong>Doctor: </strong>Dr. Khairul Ali Khan</p> <!-- check point --> 
+                            <p><strong>Doctor: </strong>Dr. Khairul Ali Khan</p> <!-- check point -->
                             <p><strong>Symptoms Log: </strong></p>
                             <ul>
                                 <li>Stomach Bloating</li>
@@ -87,13 +88,13 @@
                     </div>
                 </div>
 
-                <div class="past-appointment-prescription-card">    
-                    <h2>05 January 2024  |  Food Poisoning</h2>
+                <div class="past-appointment-prescription-card">
+                    <h2>05 January 2024 | Food Poisoning</h2>
                     <hr class="horizontal-divider">
                     <div class="card-content">
                         <div class="left">
                             <p><strong>Type: </strong>Outpatient</p>
-                            <p><strong>Doctor: </strong>Dr. Terrance Goh</p> <!-- check point --> 
+                            <p><strong>Doctor: </strong>Dr. Terrance Goh</p> <!-- check point -->
                             <p><strong>Symptoms Log: </strong></p>
                             <ul>
                                 <li>Diarrhea</li>
@@ -101,7 +102,8 @@
                                 <li>Nausea</li>
                             </ul>
                             <p><strong>Notes: </strong></p>
-                            <p>Just came back from travels in Indonesia. Already went to the doctors before flying back but symptoms still persisted.</p>
+                            <p>Just came back from travels in Indonesia. Already went to the doctors before flying back
+                                but symptoms still persisted.</p>
                         </div>
                         <hr class="vertical-divider">
                         <div class="right">
@@ -119,4 +121,5 @@
         </div>
     </main>
 </body>
+
 </html>
