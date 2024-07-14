@@ -6,7 +6,7 @@
     <title>User Dashboard</title>
     <link rel="icon" href="resources/site-logo.png" type="image/png"> <!-- INSERT SITE LOGO -->
     <!-- IMPORT FILES -->
-    <link rel="stylesheet" href="userdashboard.css">
+    <link rel="stylesheet" href="css/userdashboard.css">
 </head>
 
 <body>
