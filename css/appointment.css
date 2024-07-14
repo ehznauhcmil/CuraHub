@@ -318,3 +318,13 @@ header h2 {
     font-size: 18px;
     font-weight: bold;
 }
+
+.delete-apptmt-button {
+    width: 80px;
+    background-color: #ff0000;
+    color: white;
+    font-size: 15px;
+    border-radius: 10px;
+    border: 0px solid #ffffff;
+    cursor: pointer;
+}
