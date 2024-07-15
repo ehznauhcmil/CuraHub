@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Appointments</title>
     <link rel="icon" href="resources/site-logo.png" type="image/png"> <!-- INSERT SITE LOGO -->
     <!-- IMPORT FILES -->
-    <link rel="stylesheet" href="appointment.css">
+    <link rel="stylesheet" href="css/appointment.css.css">
 </head>
 
 <body>
@@ -215,4 +216,5 @@
         });
     </script>
 </body>
+
 </html>

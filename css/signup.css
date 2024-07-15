@@ -21,7 +21,7 @@ h6 {
   margin: 0%;
 }
 
-.login-block {
+.signup-block {
   display: flex;
   height: 100%;
   width: 100%;
@@ -32,7 +32,7 @@ h6 {
   max-width: 100vw;
 }
 
-.login-side {
+.signup-side {
   display: flex;
   flex-direction: column;
   max-height: 100vh;
@@ -41,10 +41,9 @@ h6 {
   margin: 0 auto;
 }
 
-.login-content {
+.signup-content {
   display: flex;
   flex-direction: column;
-  max-height: 100vh;
   align-items: center;
 }
 
@@ -56,13 +55,22 @@ h6 {
   padding-bottom: 5%;
 }
 
-.login-form {
+.signup-form {
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   width: 100%;
-  overflow-y: auto;
+}
+
+.signup-fields {
+  margin: 15px;
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr 2fr;
+  grid-template-rows: auto;
+  row-gap: 50px;
+  column-gap: 0%;
+  width: 100%;
 }
 
 label {
@@ -71,16 +79,17 @@ label {
 }
 
 input[type="email"],
-input[type="password"] {
+input[type="password"],
+input[type="text"] {
   background-color: none;
   color: black;
-  text-align: center;
+  text-align:left;
   border: 1px solid rgba(61, 61, 61, 0.177);
   border-radius: 5px;
   font-size: 18px;
-  padding: 20px;
+  padding: 10px;
   column-gap: 15px;
-  height: 12px;
+  height: 10px;
 }
 
 button {
@@ -115,7 +124,6 @@ a {
 
 .illustration-side {
   width: 50vw;
-  position: fixed;
   overflow: hidden;
 }
 
