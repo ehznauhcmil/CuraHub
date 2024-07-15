@@ -6,7 +6,7 @@
     <title>Medications</title>
     <link rel="icon" href="resources/site-logo.png" type="image/png"> <!-- INSERT SITE LOGO -->
     <!-- IMPORT FILES -->
-    <link rel="stylesheet" href="medication.css">
+    <link rel="stylesheet" href="css/medication.css">
 </head>
 
 <body>
