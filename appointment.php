@@ -7,7 +7,7 @@
     <title>Appointments</title>
     <link rel="icon" href="resources/site-logo.png" type="image/png"> <!-- INSERT SITE LOGO -->
     <!-- IMPORT FILES -->
-    <link rel="stylesheet" href="appointment.css">
+    <link rel="stylesheet" href="css/appointment.css.css">
 </head>
 
 <body>
@@ -191,10 +191,10 @@
             const isEditing = editButton.textContent === 'Edit'; // check if button is edit
             editButton.textContent = isEditing ? 'Done' : 'Edit'; // if-else
 
-            // select the appointment cards to be edited 
+            // select the element to be edited 
             const appointmentCards = document.querySelectorAll('.appointment-card');
 
-            // loop throught each card
+            // loop through each card
             appointmentCards.forEach(card => {
                 if (isEditing) { // if in editing mode
                     if (!card.querySelector('.delete-apptmt-button')) { // check if button alrdy exist
