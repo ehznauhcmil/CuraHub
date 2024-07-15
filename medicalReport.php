@@ -12,6 +12,7 @@ $result = $conn->query($sql);
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Medical Reports</title>
   <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -40,10 +41,13 @@ $result = $conn->query($sql);
       </tbody>
     </table>
     <div class="button-container">
-      <button class="profile-button" onclick="location.href='profileM.php'">Back to Profile</button>
-      <button class="profile-button" onclick="location.href='profileeditor.php'" type="button">Edit Profile</button>
-      <button class="profile-button" onclick="location.href='addmedicalreport.php'" type="button">Add Medical
+      <button class="profile-button" onclick="location.href='addmedicalreport.php'"
+        style="margin-bottom: 10px; margin-top:10px" type="button">Add Medical
         Report</button>
+      <button class="profile-button" onclick="location.href='profileM.php'"
+        style="margin-bottom: 10px; margin-top:5px">Back to
+        Profile</button>
+
     </div>
   </div>
 </body>

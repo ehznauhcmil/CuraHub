@@ -16,31 +16,35 @@ $user = $result->fetch_assoc();
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Profile Management</title>
   <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
   <div class="container">
     <div class="profile-container">
       <img src="2.JPG" alt="Mehrbod Payandeh Profile Photo" class="profile-picture">
-      <div class="profile-details">
-        <h2><?php echo $user['name']; ?></h2>
-        <div class="profile-details-row">
-          <div><strong>Gender:</strong> <?php echo $user['gender']; ?></div>
-          <div><strong>Birthday:</strong> <?php echo $user['birthday']; ?></div>
-          <div><strong>NRIC:</strong> <?php echo $user['nric']; ?></div>
-          <div><strong>Address:</strong> <?php echo $user['address']; ?></div>
-        </div>
-        <div class="profile-details-row">
-          <div><strong>Phone Number:</strong> <?php echo $user['phone']; ?></div>
-          <div><strong>Email:</strong> <?php echo $user['email']; ?></div>
-          <div><strong>State:</strong> <?php echo $user['state']; ?></div>
-          <div><strong>Country:</strong> <?php echo $user['country']; ?></div>
-        </div>
+      <div class="button-container1">
+        <button class="profile-button1" onclick="location.href='profileeditor.php'">Edit Profile</button>
+        <button class="profile-button1" onclick="location.href='medicalReport.php'">Medical Report</button>
+        <button class="profile-button1" onclick="location.href='addmedicalreport.php'">Add Medical Report</button>
       </div>
-      <div class="button-container">
-        <button class="profile-button" onclick="location.href='profileeditor.php'">Edit Profile</button>
-        <button class="profile-button" onclick="location.href='medicalReport.php'">Medical Report</button>
-        <button class="profile-button" onclick="location.href='addmedicalreport.php'">Add Medical Report</button>
+      <div>
+        <div class="profile-details">
+          <h2><?php echo $user['name']; ?></h2>
+          <br />
+          <div class="profile-details-row">
+            <div><strong>Gender:</strong> <?php echo $user['gender']; ?></div>
+            <div><strong>Birthday:</strong><br /> <?php echo $user['birthday']; ?></div>
+            <div><strong>NRIC:</strong> <?php echo $user['nric']; ?></div>
+            <div><strong>Address:</strong> <?php echo $user['address']; ?></div>
+          </div>
+          <div class="profile-details-row">
+            <div><strong>Phone Number:</strong> <?php echo $user['phone']; ?></div>
+            <div><strong>Email:</strong> <?php echo $user['email']; ?></div>
+            <div><strong>State:</strong> <?php echo $user['state']; ?></div>
+            <div><strong>Country:</strong> <?php echo $user['country']; ?></div>
+          </div>
+        </div>
       </div>
     </div>
 
