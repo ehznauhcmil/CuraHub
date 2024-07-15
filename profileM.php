@@ -15,22 +15,32 @@ $user = $result->fetch_assoc();
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Profile Management</title>
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
+  <aside class="sidebar">
+    <div class="sidebar-navtop">
+      <p><a href="homepage.php"><img src="resources/back-icon.png" alt="Go Back to Homepage Icon"></a></p>
+      <p><a href="userdashboard.php"><img src="resources/dashboard-icon.png" alt="User Dashboard Icon"></a></p>
+      <p><a href="appointment.php"><img src="resources/calendar-icon.png" alt="Appointment Icon"></a></p>
+      <p><a href="profilepage.php"><img src="resources/profile-icon.png" alt="Profile Icon"></a></p>
+      <p><a href="medication.php"><img src="resources/medication-icon.png" alt="Medication Icon"></a></p>
+      <p><a href="medicalreport.php"><img src="resources/medreport-icon.png" alt="Medical Report Icon"></a></p>
+      <p><a href="#"><img src="resources/settings-icon.png" alt="Settings Icon"></a></p>
+    </div>
+    <div class="sidebar-navbottom">
+      <p><a href="#"><img src="resources/signout-icon.png" alt="Sign Out Icon"></a></p>
+    </div>
+  </aside>
   <div class="container">
     <div class="profile-container">
       <img src="2.JPG" alt="Mehrbod Payandeh Profile Photo" class="profile-picture">
-      <div class="button-container1">
-        <button class="profile-button1" onclick="location.href='profileeditor.php'">Edit Profile</button>
-        <button class="profile-button1" onclick="location.href='medicalReport.php'">Medical Report</button>
-        <button class="profile-button1" onclick="location.href='addmedicalreport.php'">Add Medical Report</button>
-      </div>
       <div>
         <div class="profile-details">
           <h2><?php echo $user['name']; ?></h2>
+          <div><?php echo $user['state']; ?></div>
           <br />
           <div class="profile-details-row">
             <div><strong>Gender:</strong> <?php echo $user['gender']; ?></div>
@@ -45,6 +55,9 @@ $user = $result->fetch_assoc();
             <div><strong>Country:</strong> <?php echo $user['country']; ?></div>
           </div>
         </div>
+      </div>
+      <div class="button-container1">
+        <button class="profile-button11" onclick="location.href='profileeditor.php'">Edit Profile</button>
       </div>
     </div>
 
