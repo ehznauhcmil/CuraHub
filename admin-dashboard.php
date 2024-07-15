@@ -1,3 +1,13 @@
+<?php
+    include 'db.php';
+    session_start();
+    
+    $upcoming_appointments = "SELECT * FROM appointment WHERE status IN ('pending', 'accepted')";
+    $completed_appointments = "SELECT * FROM appointment WHERE status = 'completed'";
+    $upcoming_results = $conn->query($upcoming_appointments);
+    $completed_results = $conn->query($completed_appointments);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -96,7 +106,7 @@
         <div class = "appointment-section" id = "appointments">
             
             <h3>Upcoming Appointments</h3>
-            <div class = "upcoming-section">
+            <div class = "upcoming-section" id = "upcoming-section">
                 <div class = "appointment-fields">
                     <span>Status</span>
                     <span>Doctor</span>
@@ -105,36 +115,77 @@
                 </div>
 
                 <!-- Details Container -->
-                <div class = "details-container">
-                    <div class = "status">
-                        Pending
-                    </div>
-                    <div class = "spacer"></div>
-                    <div class = "column" style = "align-items: center;">
-                        <img src="images/doctor_image.png" alt="" style = "width: 60px;">
-                        <span style = "font-size: 14px;">Dr. Paula Angela</span>
-                        <span style = "font-size: 10px">Gynecologist</span>
-                    </div>
-                    <div class = "spacer"></div>
-                    <div class = "column" style = "align-items: center;">
-                        <i class="fa-solid fa-location-dot"></i>
-                        <span style = "font-size: 14px;">Suriamas Condo, Jalan Pjs</span>
-                        <span style = "font-size: 14px; color: #676767;">Selangor, Malaysia</span>
-                    </div>
-                    <div class = "spacer"></div>
-                    <div class = "column" style = "align-items: center; margin-right: 11%">
-                        <span style = "color: #00C2C2; font-size: 24px; font-weight: bold">10:30 AM</span>
-                        <span style = "font-size: 20px">21st April, 2024</span>
-                    </div>
-                </div>
-                <button class = "expand-button">
+                <?php
+                    if ($upcoming_results->num_rows > 0) {
+                        $counter = 0;
+                        while ($row = $upcoming_results->fetch_assoc()) {
+                            if ($count < 2) {
+                            ?>
+                            <div class = "details-container">
+                                <div class = "status">
+                                    Pending
+                                </div>
+                                <div class = "spacer"></div>
+                                <div class = "column" style = "align-items: center;">
+                                    <img src="images/doctor_image.png" alt="" style = "width: 60px;">
+                                    <span style = "font-size: 14px;">Dr. Paula Angela</span>
+                                    <span style = "font-size: 10px">Gynecologist</span>
+                                </div>
+                                <div class = "spacer"></div>
+                                <div class = "column" style = "align-items: center;">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    <span style = "font-size: 14px;">Suriamas Condo, Jalan Pjs</span>
+                                    <span style = "font-size: 14px; color: #676767;">Selangor, Malaysia</span>
+                                </div>
+                                <div class = "spacer"></div>
+                                <div class = "column" style = "align-items: center; margin-right: 11%">
+                                    <span style = "color: #00C2C2; font-size: 24px; font-weight: bold">10:30 AM</span>
+                                    <span style = "font-size: 20px">21st April, 2024</span>
+                                </div>
+                            </div>
+                            <?php
+                                $count++;
+                                }
+                                else {
+                                    ?>
+                                    <div class = "details-container" style="display: none;">
+                                        <div class = "status">
+                                            Pending
+                                        </div>
+                                        <div class = "spacer"></div>
+                                        <div class = "column" style = "align-items: center;">
+                                            <img src="images/doctor_image.png" alt="" style = "width: 60px;">
+                                            <span style = "font-size: 14px;">Dr. Paula Angela</span>
+                                            <span style = "font-size: 10px">Gynecologist</span>
+                                        </div>
+                                        <div class = "spacer"></div>
+                                        <div class = "column" style = "align-items: center;">
+                                            <i class="fa-solid fa-location-dot"></i>
+                                            <span style = "font-size: 14px;">Suriamas Condo, Jalan Pjs</span>
+                                            <span style = "font-size: 14px; color: #676767;">Selangor, Malaysia</span>
+                                        </div>
+                                        <div class = "spacer"></div>
+                                        <div class = "column" style = "align-items: center; margin-right: 11%">
+                                            <span style = "color: #00C2C2; font-size: 24px; font-weight: bold">10:30 AM</span>
+                                            <span style = "font-size: 20px">21st April, 2024</span>
+                                        </div>
+                                    </div>
+                                <?php
+                                }
+                            }
+                        }
+                        else {
+                            echo '<div class="no-appointments">No Upcoming Appointments</div>';
+                        }
+                        ?>
+                <button class = "expand-button" onclick="loadMoreAppointments('upcoming')" id = "expand-upcoming-button">
                     <i class="fa-solid fa-caret-down"></i>
                 </button>
             </div>
 
             <!-- Completed Appointments section -->
             <h3>Completed Appointments</h3>
-            <div class = "upcoming-section">
+            <div class = "upcoming-section" id = "completed-section">
                 <div class = "appointment-fields">
                     <span>Status</span>
                     <span>Doctor</span>
@@ -143,29 +194,72 @@
                 </div>
 
                 <!-- Details Container -->
-                <div class = "details-container">
-                    <div class = "status">
-                        Completed
-                    </div>
-                    <div class = "spacer"></div>
-                    <div class = "column" style = "align-items: center;">
-                        <img src="images/doctor_image.png" alt="" style = "width: 60px;">
-                        <span style = "font-size: 14px;">Dr. Paula Angela</span>
-                        <span style = "font-size: 10px">Gynecologist</span>
-                    </div>
-                    <div class = "spacer"></div>
-                    <div class = "column" style = "align-items: center;">
-                        <i class="fa-solid fa-location-dot"></i>
-                        <span style = "font-size: 14px;">Suriamas Condo, Jalan Pjs</span>
-                        <span style = "font-size: 14px; color: #676767;">Selangor, Malaysia</span>
-                    </div>
-                    <div class = "spacer"></div>
-                    <div class = "column" style = "align-items: center; margin-right: 11%">
-                        <span style = "color: #00C2C2; font-size: 24px; font-weight: bold">10:30 AM</span>
-                        <span style = "font-size: 20px">21st April, 2024</span>
-                    </div>
-                </div>
-                <button class = "expand-button">
+                <?php
+                    if ($completed_results->num_rows > 0) {
+                        $count = 0;
+                        while ($row = $completed_results->fetch_assoc()) {
+                            if ($count < 2) {
+                            ?>
+                            <div class = "details-container">
+                                <div class = "status">
+                                    Completed
+                                </div>
+                                <div class = "spacer"></div>
+                                <div class = "column" style = "align-items: center;">
+                                    <img src="images/doctor_image.png" alt="" style = "width: 60px;">
+                                    <span style = "font-size: 14px;">Dr. Paula Angela</span>
+                                    <span style = "font-size: 10px">Gynecologist</span>
+                                </div>
+                                <div class = "spacer"></div>
+                                <div class = "column" style = "align-items: center;">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    <span style = "font-size: 14px;">Suriamas Condo, Jalan Pjs</span>
+                                    <span style = "font-size: 14px; color: #676767;">Selangor, Malaysia</span>
+                                </div>
+                                <div class = "spacer"></div>
+                                <div class = "column" style = "align-items: center; margin-right: 11%">
+                                    <span style = "color: #00C2C2; font-size: 24px; font-weight: bold">10:30 AM</span>
+                                    <span style = "font-size: 20px">21st April, 2024</span>
+                                </div>
+                            </div>
+                            <?php
+                                $count++;
+                                }
+                                else {
+                                    ?>
+                                        <div class = "details-container" style="display: none;">
+                                            <div class = "status">
+                                                Completed
+                                            </div>
+                                            <div class = "spacer"></div>
+                                            <div class = "column" style = "align-items: center;">
+                                                <img src="images/doctor_image.png" alt="" style = "width: 60px;">
+                                                <span style = "font-size: 14px;">Dr. Paula Angela</span>
+                                                <span style = "font-size: 10px">Gynecologist</span>
+                                            </div>
+                                            <div class = "spacer"></div>
+                                            <div class = "column" style = "align-items: center;">
+                                                <i class="fa-solid fa-location-dot"></i>
+                                                <span style = "font-size: 14px;">Suriamas Condo, Jalan Pjs</span>
+                                                <span style = "font-size: 14px; color: #676767;">Selangor, Malaysia</span>
+                                            </div>
+                                            <div class = "spacer"></div>
+                                            <div class = "column" style = "align-items: center; margin-right: 11%">
+                                                <span style = "color: #00C2C2; font-size: 24px; font-weight: bold">10:30 AM</span>
+                                                <span style = "font-size: 20px">21st April, 2024</span>
+                                            </div>
+                                        </div>
+                                    <?php
+                                }
+                            }
+                        }
+                        else {
+                            echo '<div class="no-appointments">No Completed Appointments</div>';
+                        }
+                        // Close the database connection
+                        $conn->close();
+                        ?>
+                <button class = "expand-button" id = "expand-completed-button" onclick="loadMoreAppointments('completed')">
                     <i class="fa-solid fa-caret-down"></i>
                 </button>
             </div>
