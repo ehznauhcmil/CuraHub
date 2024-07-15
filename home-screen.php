@@ -114,6 +114,19 @@
                     </span>
                 </div>
             </div>
+            <div class = "spacer"></div>
+            <div class="review-container">
+                <img src="images/Rating.png" alt="" style="width: 35%">
+                <h6>Review Title</h6>
+                <p>Review body</p>
+                <div class="reviews">
+                    <img src="images/Avatar.png" alt="" style="width: 10%; margin-right: 10px">
+                    <span style="display: inline-block">
+                        <div style="color: #757575">Reviewer Name</div>
+                        <div style="color: #B3B3B3">Date</div>
+                    </span>
+                </div>
+            </div>
         </div>
     </div>
 </body>
@@ -162,5 +175,18 @@
 <div class="copyrights">
     © 2024 CuraHub. All rights reserved.
 </div>
+
+<script>
+    function showScreen(screenId) {
+        // Hide all screens
+        var screens = document.querySelectorAll('.screen');
+        screens.forEach(function(screen) {
+            screen.classList.remove('active');
+        });
+
+        // Show the selected screen
+        document.getElementById(screenId).classList.add('active');
+    }
+</script>
 
 </html>

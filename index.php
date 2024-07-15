@@ -1,5 +1,5 @@
 <?php
-    header("Location: admin-dashboard.php");
+    header("Location: home-screen.php");
     exit;
 ?>
 
