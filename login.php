@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/user-login.css">
+    <link rel="stylesheet" href="css/login.css">
     <title>Login</title>
 </head>
 
@@ -18,19 +18,19 @@
                     <h6>Login with your CuraHub Account.</h6>
                 </div>
 
-                <form class="login-form" action="index.php" method="POST">
+                <form class="login-form" action="login-validation.php" method="POST">
                     <label for="email">Email Address:</label>
                     <input type="email" id="email" placeholder="Enter Your Email Address" name="email"
-                        autocomplete="off"><br />
+                        autocomplete="off" required><br />
 
                     <label for="password">Password:</label>
                     <input type="password" id="password" name="password" placeholder="********************"
-                        autocomplete="off"><br />
+                        autocomplete="off" required><br />
 
                     <button type="submit" id="login-button">LOGIN ACCOUNT</button><br /><br />
                     <div class="signup-link">
                         <p>
-                            Don't you have any account? <a href="user-signup.php"> Sign Up Here</a>
+                            Don't you have any account? <a href="signup.php"> Sign Up Here</a>
                         </p>
                     </div>
 

@@ -16,6 +16,7 @@ $user = $result->fetch_assoc();
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Edit Profile</title>
   <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -61,10 +62,6 @@ $user = $result->fetch_assoc();
       </div>
       <div class="button-container">
         <button type="submit" class="profile-button">Save Changes</button>
-        <button class="profile-button" onclick="location.href='profileM.php'" type="button">Back to Profile</button>
-        <button class="profile-button" onclick="location.href='medicalReport.php'" type="button">Medical Report</button>
-        <button class="profile-button" onclick="location.href='addmedicalreport.php'" type="button">Add Medical
-          Report</button>
       </div>
     </form>
   </div>
