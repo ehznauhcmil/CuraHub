@@ -22,3 +22,19 @@ function selectNavItem(selectedNav) {
         document.getElementById('register-button').classList.add('menu-buttons-selected');
     }
 }
+
+
+function loadMoreAppointments(status) {
+    // Select all hidden appointments and display them
+    var hiddenAppointments = document.querySelectorAll('#' + status + '-section .details-container[style="display: none;"]');
+    hiddenAppointments.forEach(function(appointment) {
+        appointment.style.display = 'flex';
+    });
+ 
+    // Hide the load more button after displaying all appointments
+    var loadMoreBtn = document.getElementById('expand-' + status + '-button');
+    if (loadMoreBtn) {
+        loadMoreBtn.style.display = 'none';
+    }
+}
+
