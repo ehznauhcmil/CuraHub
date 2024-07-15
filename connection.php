@@ -3,6 +3,6 @@
 $serverhost = 'localhost';
 $username = 'root';
 $password = '';
-$database = 'curahub';
+$database = 'CuraHub';
 
 $connect = mysqli_connect($serverhost, $username, $password, $database);

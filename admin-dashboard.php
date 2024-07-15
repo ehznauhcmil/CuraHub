@@ -6,6 +6,38 @@
     $completed_appointments = "SELECT * FROM appointment WHERE status = 'completed'";
     $upcoming_results = $conn->query($upcoming_appointments);
     $completed_results = $conn->query($completed_appointments);
+
+    include 'db.php';
+    session_start();
+
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        // Retrieve form data
+        $provider_id = 31231;
+        $first_name = $_POST['first_name'];
+        $last_name = $_POST['last_name'];
+        $specialization = $_POST['specialization'];
+        $qualification = $_POST['qualification'];
+        $university = $_POST['university'];
+        $contact = $_POST['contact'];
+
+        // Performing insert query execution
+            $sql = "INSERT INTO healthcarepro VALUES ('$provider_id', '$first_name', '$last_name', '$specialization', '$qualification', 
+                '$university', '$contact')";
+            
+            if(mysqli_query($conn, $sql)){
+                echo "<h3>data stored in a database successfully." ; 
+
+                    header("Refresh: 2; url=admin-dashboard.php");
+                    exit();
+            } else{
+                echo "ERROR: Hush! Sorry $sql. " 
+                    . mysqli_error($conn);
+            }
+            
+            // Close connection
+            mysqli_close($conn);
+    }
+    
 ?>
 
 <!DOCTYPE html>
@@ -44,7 +76,7 @@
                 Register Provider
             </button>
             <div class = "spacer"></div>
-            <button class = "logout-button">
+            <button class = "logout-button" id = "logoutButton">
                 Log out of admin
             </button>
         </div>
@@ -257,7 +289,7 @@
                             echo '<div class="no-appointments">No Completed Appointments</div>';
                         }
                         // Close the database connection
-                        $conn->close();
+                        // $conn->close();
                         ?>
                 <button class = "expand-button" id = "expand-completed-button" onclick="loadMoreAppointments('completed')">
                     <i class="fa-solid fa-caret-down"></i>
@@ -268,7 +300,7 @@
         <!-- register provider -->
         <div class= "register" id = "register">
             <h1>Register Healthcare Provider</h1>
-            <form action="admin-dashboard/register-provider.php" class = "register-form" method = "post" id = "register-form">
+            <form action="admin-dashboard.php" class = "register-form" method = "post" id = "register-form">
                 <div class = "register-healthcare-grid">
                     <div class = "fields">
                         <h3>First Name</h3>

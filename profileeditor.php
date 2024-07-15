@@ -1,13 +1,25 @@
 <?php
 include 'db.php';
+session_start();
 
-// فرض کنید که user_id = 1 باشد
-$user_id = 1;
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 
-$sql = "SELECT * FROM users WHERE id = $user_id";
+$user_id = $_SESSION['user_id'];
+
+$sql = "SELECT * FROM users WHERE user_id = $user_id";
+// $sql = "SELECT * FROM users WHERE email = $email";
 $result = $conn->query($sql);
-$user = $result->fetch_assoc();
+
+if ($result->num_rows > 0) {
+  // Fetch the user data
+  $user = $result->fetch_assoc();
+} else {
+  echo "No user found.";
+  exit();
+} 
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,10 +35,14 @@ $user = $result->fetch_assoc();
   <div class="container">
     <h1>Edit Profile</h1>
     <form action="submitProfile.php" method="post">
-      <input type="hidden" name="id" value="<?php echo $user['id']; ?>">
+      <input type="hidden" name="id" value="<?php echo $user['user_id']; ?>">
       <div class="form-row">
-        <label for="name"><strong>Name:</strong></label><br />
-        <input type="text" id="name" name="name" value="<?php echo $user['name']; ?>">
+        <label for="name"><strong>First Name:</strong></label><br />
+        <input type="text" id="first_name" name="first_name" value="<?php echo $user['first_name']; ?>">
+      </div>
+      <div class="form-row">
+        <label for="name"><strong>Last Name:</strong></label><br />
+        <input type="text" id="last_name" name="last_name" value="<?php echo $user['last_name']; ?>">
       </div>
       <div class="form-row">
         <label for="gender"><strong>Gender:</strong></label><br />
@@ -34,11 +50,11 @@ $user = $result->fetch_assoc();
       </div>
       <div class="form-row">
         <label for="birthday"><strong>Birthday:</strong></label><br />
-        <input type="date" id="birthday" name="birthday" value="<?php echo $user['birthday']; ?>">
+        <input type="date" id="date_of_birth" name="date_of_birth" value="<?php echo $user['date_of_birth']; ?>">
       </div>
       <div class="form-row">
         <label for="nric"><strong>NRIC:</strong></label><br />
-        <input type="text" id="nric" name="nric" value="<?php echo $user['nric']; ?>">
+        <input type="text" id="identity_no" name="identity_no" value="<?php echo $user['identity_no']; ?>">
       </div>
       <div class="form-row">
         <label for="address"><strong>Address:</strong></label><br />
@@ -46,7 +62,7 @@ $user = $result->fetch_assoc();
       </div>
       <div class="form-row">
         <label for="phone"><strong>Phone Number:</strong></label><br />
-        <input type="text" id="phone" name="phone" value="<?php echo $user['phone']; ?>">
+        <input type="text" id="phone_no" name="phone_no" value="<?php echo $user['phone_no']; ?>">
       </div>
       <div class="form-row">
         <label for="email"><strong>Email:</strong></label><br />
