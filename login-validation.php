@@ -27,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION['email'] = $email;
             $_SESSION['user_id'] = $row['user_id'];
             $_SESSION['usertype'] = 'user';
-            header("Location: home-screen.php"); // Redirect to user page
+            header("Location: user-dashboard.php"); // Redirect to user page
             $_SESSION['username'] = $row['first_name'] . ' ' . $row['last_name'];
             exit;
         }

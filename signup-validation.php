@@ -16,7 +16,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $identityNo = $_POST['identity'];
     $phoneNo = $_POST['phone'];
 
-    // Basic Validation (Add more rigorous checks as needed)
     $errors = [];
 
     if (empty($email) || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
