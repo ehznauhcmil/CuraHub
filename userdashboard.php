@@ -25,8 +25,8 @@ $username = isset($_SESSION['username']) ? $_SESSION['username'] : 'User';
         <div class="sidebar-navtop">
             <p><a href="home-screen.php"><img src="resources/back-icon.png" alt="Go Back to Homepage Icon"></a></p>
             <p><a href="userdashboard.php"><img src="resources/dashboard-icon.png" alt="User Dashboard Icon"></a></p>
-            <p><a href="doctors-booking.php"><img src="resources/calendar-icon.png" alt="Appointment Icon"></a></p>
-            <p><a href="userprofile.php"><img src="resources/profile-icon.png" alt="Profile Icon"></a></p>
+            <p><a href="appointment.php"><img src="resources/calendar-icon.png" alt="Appointment Icon"></a></p>
+            <p><a href="profileM.php"><img src="resources/profile-icon.png" alt="Profile Icon"></a></p>
             <p><a href="medication.php"><img src="resources/medication-icon.png" alt="Medication Icon"></a></p>
             <p><a href="medicalReport.php"><img src="resources/medreport-icon.png" alt="Medical Report Icon"></a></p>
             <p><a href="#"><img src="resources/settings-icon.png" alt="Settings Icon"></a></p>

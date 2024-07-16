@@ -1,30 +1,46 @@
 <?php
-include 'db.php';
 
-$id = $_POST['id'];
-$name = $_POST['name'];
+include 'db-connection.php';
+session_start();
+
+$user_id = $_SESSION['user_id'];
+$first_name = $_POST['first_name'];
+$last_name = $_POST['last_name'];
 $gender = $_POST['gender'];
-$birthday = $_POST['birthday'];
-$nric = $_POST['nric'];
+$date_of_birth = $_POST['date_of_birth'];
+$identity_no = $_POST['identity_no'];
 $address = $_POST['address'];
-$phone = $_POST['phone'];
+$phone_no = $_POST['phone_no'];
 $email = $_POST['email'];
 $state = $_POST['state'];
 $country = $_POST['country'];
 
+// Prepare the SQL statement with placeholders
 $sql = "UPDATE users SET 
-        name='$name', gender='$gender', birthday='$birthday', nric='$nric', 
-        address='$address', phone='$phone', email='$email', state='$state', country='$country' 
-        WHERE id=$id";
+        first_name=?, last_name=?, gender=?, date_of_birth=?, identity_no=?, 
+        address=?, phone_no=?, email=?, state=?, country=? 
+        WHERE user_id=?";
 
-if ($conn->query($sql) === TRUE) {
-  echo "Record updated successfully";
+// Initialize a statement and prepare the SQL query
+$stmt = $connect->prepare($sql);
+
+// Bind the parameters to the SQL query
+$stmt->bind_param("ssssssssssi", 
+    $first_name, $last_name, $gender, $date_of_birth, $identity_no, 
+    $address, $phone_no, $email, $state, $country, $user_id);
+
+// Execute the statement
+if ($stmt->execute()) {
+    echo "User updated successfully.";
 } else {
-  echo "Error updating record: " . $conn->error;
+    echo "Error updating user: " . $stmt->error;
 }
 
-$conn->close();
+// Close the statement and connection
+$stmt->close();
+$connect->close();
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
