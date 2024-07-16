@@ -64,7 +64,7 @@ p {
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: auto;
     height: 60%;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
     padding: 1%;
 

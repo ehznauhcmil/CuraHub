@@ -5,59 +5,91 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Add Medical Report</title>
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/medical-record-add.css">
+  <link rel="stylesheet" href="css/navbar.css">
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
-  <header>
-    <div class="addheader">
-      <h1 class="addheaderh">Cura Hub</h1>
-      <div class="addheaderp1">
-        <a href="">Medical Report</a>
-      </div>
-      <div class="addheaderp1">
-        <a href="">Upcoming Appointment</a>
-      </div>
-      <div class="addheaderp1">
-        <a href="">You</a>
-      </div>
-      <div class="BA_div">
-        <button class="Browse_doctor1" onclick="location.href='#'" type="button">Browse doctor</button>
-        <button class="Browse_doctor" onclick="location.href='#'" type="button">Switch to Admin</button>
-
-      </div>
-
+  <aside class="sidebar">
+    <div class="sidebar-img-container">
+      <p><a href="home-screen.php"><img src="resources/home.png" alt="Go Back to Homepage Icon"></a></p>
     </div>
-  </header>
+    <div class="sidebar-img-container">
+      <p><a href="user-dashboard.php"><img src="resources/dashboard-icon.png" alt="User Dashboard Icon"></a>
+      </p>
+    </div>
+    <div class="sidebar-img-container">
+      <p><a href="doctors-booking.php"><img src="resources/calendar-icon.png" alt="Appointment Icon"></a></p>
+    </div>
+    <div class="sidebar-img-container">
+      <p><a href="user-profile.php"><img src="resources/profile-icon.png" alt="Profile Icon"></a></p>
+    </div>
+    <div class="sidebar-img-container">
+      <p><a href="medication.php"><img src="resources/medication-icon.png" alt="Medication Icon"></a></p>
+    </div>
+    <div class="sidebar-img-container">
+      <p><a href="medical-record.php"><img src="resources/medreport-icon.png" alt="Medical Report Icon"></a>
+      </p>
+    </div>
+    <div class="sidebar-img-container">
+      <p><a href="#"><img src="resources/settings-icon.png" alt="Settings Icon"></a></p>
+    </div>
+    <div class="sidebar-img-container">
+      <p><a href="logout.php"><img src="resources/signout-icon.png" alt="Log Out Icon"></a></p>
+    </div>
+
+  </aside>
+
   <div class="container">
     <h1>Add Medical Report</h1>
-    <form action="submitMedicalReport.php" method="post" enctype="multipart/form-data">
-      <div class="form-row">
-        <label for="description"><strong>Description:</strong></label><br />
-        <input type="text" id="description" name="description" required placeholder="Type something here">
+    <form action="medical-record-submit.php" method="post" enctype="multipart/form-data">
+      <div class="form-fields">
+        <div>
+          <label for="description">
+            <h3>Description:</h3>
+          </label>
+        </div>
+
+        <div>
+          <input type="text" id="description" name="description" required placeholder="Type something here">
+        </div>
+
+        <div>
+          <label for="date">
+            <h3>Date:</h3>
+          </label>
+        </div>
+
+        <div>
+          <input type="date" id="date" name="date" required placeholder="Date">
+        </div>
+
+        <div>
+          <label for="type">
+            <h3>Type:</h3>
+          </label>
+        </div>
+
+        <div>
+          <input type="text" id="type" name="type" required placeholder="Type something here">
+        </div>
+
+        <div>
+          <label for="doctorId">
+            <h3>Doctor ID:</h3>
+          </label>
+        </div>
+
+        <div>
+          <input type="number" id="doctor_id" name="doctor_id" required placeholder="Doctor ID">
+        </div>
       </div>
-      <div class="form-row">
-        <label for="date"><strong>Date:</strong></label><br />
-        <input type="date" id="date" name="date" required placeholder="Date">
-      </div>
-      <div class="form-row">
-        <label for="type"><strong>Type:</strong></label><br />
-        <input type="text" id="type" name="type" required placeholder="Type something here">
-      </div>
-      <div class="form-row">
-        <label for="provider"><strong>Doctor ID:</strong></label><br />
-        <input type="number" id="provider" name="provider" required placeholder="Provider">
-      </div>
-      <div class="form-row">
-        <label for="uploadFile"><strong>Upload File:</strong></label><br />
-        <input type="file" id="uploadFile" name="uploadFile" required>
-      </div>
+
+      <div class="spacer"></div>
+
       <div class="button-container">
         <button type="submit" class="profile-button">Submit</button>
-        <!-- <button class="profile-button" onclick="location.href='profileM.php'" type="button">Back to Profile</button>
-        <button class="profile-button" onclick="location.href='medicalReport.php'" type="button">Medical Report</button>
-        <button class="profile-button" onclick="location.href='profileeditor.php'" type="button">Edit Profile</button> -->
       </div>
     </form>
   </div>

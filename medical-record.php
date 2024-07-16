@@ -2,13 +2,16 @@
 include 'db-connection.php';
 session_start();
 
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
+if (!isset($_SESSION['user_id'])) {
+  header("Location: login.php"); // Redirect to login page
+  exit();
+}
 
-$user_id = $_SESSION['user_id'];
+$stmt = $connect->prepare("SELECT * FROM medical_record WHERE user_id = ?");
+$stmt->bind_param("s", $user_id); // "s" indicates the parameter is a string
+$stmt->execute();
+$result = $stmt->get_result();
 
-$sql = "SELECT * FROM medical_record WHERE user_id = $user_id";
-$result = $connect->query($sql);
 ?>
 
 <!DOCTYPE html>

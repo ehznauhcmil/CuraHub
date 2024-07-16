@@ -25,39 +25,32 @@ $sql = "UPDATE users SET
 $stmt = $connect->prepare($sql);
 
 // Bind the parameters to the SQL query
-$stmt->bind_param("ssssssssssi", 
-    $first_name, $last_name, $gender, $date_of_birth, $identity_no, 
-    $address, $phone_no, $email, $state, $country, $user_id);
+$stmt->bind_param(
+  "ssssssssssi",
+  $first_name,
+  $last_name,
+  $gender,
+  $date_of_birth,
+  $identity_no,
+  $address,
+  $phone_no,
+  $email,
+  $state,
+  $country,
+  $user_id
+);
 
 // Execute the statement
 if ($stmt->execute()) {
-    echo "User updated successfully.";
+  echo "User updated successfully.";
+  header('Location: user-profile.php');
+  exit();
 } else {
-    echo "Error updating user: " . $stmt->error;
+  echo "Error updating user: " . $stmt->error;
 }
 
 // Close the statement and connection
 $stmt->close();
 $connect->close();
+
 ?>
-
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Profile Updated</title>
-  <link rel="stylesheet" href="css/style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap" rel="stylesheet">
-</head>
-
-<body>
-  <div class="container">
-    <h1>Profile Updated</h1>
-    <p>Your profile has been updated successfully.</p>
-    <button class="profile-button" onclick="location.href='profileM.php'">Back to Profile</button>
-  </div>
-</body>
-
-</html>
