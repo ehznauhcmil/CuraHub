@@ -23,6 +23,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION['loggedin'] = true;
             $_SESSION['email'] = $email;
             $_SESSION['usertype'] = 'user';
+            $_SESSION['username'] = $row['first_name'] . ' ' . $row['last_name'];
+            $_SESSION['user_id'] = $row['user_id'];
             header("Location: userdashboard.php"); // Redirect to user page
             exit;
         }
@@ -38,6 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $_SESSION['loggedin'] = true;
                 $_SESSION['email'] = $email;
                 $_SESSION['usertype'] = 'admin';
+                $_SESSION['username'] = $row['first_name'] . ' ' . $row['last_name'];
                 header("Location: admin-dashboard-profile.php"); // Redirect to admin page
                 exit;
             }

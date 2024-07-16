@@ -232,10 +232,12 @@ function bookAppointment() {
     }
 
     const slotId = selectedSlot.dataset.slotId;
-    const userId = 1; // Replace this with actual user ID (e.g., from session)
+    const userDataElement = document.getElementById('user-data');
+    const userId = userDataElement.dataset.userId; 
+
 
     const xhr = new XMLHttpRequest();
-    const url = new URL('http://localhost/curahub/book-appointment.php', window.location.href);
+    const url = new URL('http://localhost/curahub/appointment-book.php', window.location.href);
     
     xhr.open('POST', url.toString(), true);
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
