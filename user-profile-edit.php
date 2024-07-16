@@ -170,7 +170,13 @@ if ($result->num_rows > 0) {
 
       </div>
       <div class="spacer"></div>
-      <button type="submit" class="profile-button">Save Changes</button>
+      <div class="button-container">
+        <button type="submit" class="profile-button">
+          <h3>Submit</h3>
+        </button>
+        <button class="profile-button" onclick="window.location.href='user-profile.php'">
+          <h3>Back to Profile</h3>
+        </button>
     </form>
   </div>
 </body>

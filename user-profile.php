@@ -1,9 +1,6 @@
 <?php
 session_start();
 
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-
 require "db-connection.php";
 // Check if the user is logged in
 if (!isset($_SESSION['user_id'])) {
@@ -18,7 +15,7 @@ $stmt = $connect->prepare("SELECT * FROM users WHERE user_id = ?");
 $stmt->bind_param("s", $user_id); // Bind the user_id as a string parameter
 $stmt->execute();
 
-$result = $stmt->get_result(); // Get the result object
+$result = $stmt->get_result();
 
 if ($result->num_rows > 0) {
   // Fetch the user data
@@ -89,10 +86,10 @@ if ($result->num_rows > 0) {
             <h3>Edit Profile</h3>
           </button>
           <button class="profile-button" onclick="location.href='medical-record.php'">
-            <h3>Medical Report</h3>
+            <h3>Medical Records</h3>
           </button>
           <button class="profile-button" onclick="location.href='medical-record-add.php'">
-            <h3>Add Medical Report</h3>
+            <h3>Add Medical Record</h3>
           </button>
         </div>
       </div>

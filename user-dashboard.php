@@ -65,7 +65,7 @@ $username = isset($_SESSION['username']) ? $_SESSION['username'] : 'User';
                 <div class="checkup-reminder-button">
                     <button class="check-now-button" onclick="window.location.href='doctors-booking.php'">Check
                         Now</button>
-                    <button class="view-report-button" onclick="window.location.href='medicalreport.php'">View
+                    <button class="view-report-button" onclick="window.location.href='medical-record.php'">View
                         Report</button>
                 </div>
             </div>
