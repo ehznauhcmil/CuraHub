@@ -185,7 +185,7 @@
     </main>
 
     <script>
-        document.querySelector('.edit-apptmt-button').addEventListener('click', function() {
+        document.querySelector('.edit-apptmt-button').addEventListener('click', function () {
             const editButton = this;
             // switch between edit and done button
             const isEditing = editButton.textContent === 'Edit'; // check if button is edit
@@ -201,7 +201,7 @@
                         const deleteButton = document.createElement('button');  // create delete button
                         deleteButton.textContent = 'Delete';
                         deleteButton.classList.add('delete-apptmt-button'); // add class name to button
-                        deleteButton.addEventListener('click', function() {
+                        deleteButton.addEventListener('click', function () {
                             card.remove(); // remove card when clicked
                         });
                         card.appendChild(deleteButton); // attach the button to the card

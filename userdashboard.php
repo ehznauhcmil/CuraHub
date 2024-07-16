@@ -1,10 +1,20 @@
+<?php
+session_start();
+if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
+    header("Location: login.php");
+    exit;
+}
+
+$username = isset($_SESSION['username']) ? $_SESSION['username'] : 'User';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ser Dashboard</title>
+    <title>User Dashboard</title>
     <link rel="icon" href="resources/site-logo.png" type="image/png"> <!-- INSERT SITE LOGO -->
     <!-- IMPORT FILES -->
     <link rel="stylesheet" href="css/userdashboard.css">
@@ -18,17 +28,17 @@
             <p><a href="appointment.php"><img src="resources/calendar-icon.png" alt="Appointment Icon"></a></p>
             <p><a href="profileM.php"><img src="resources/profile-icon.png" alt="Profile Icon"></a></p>
             <p><a href="medication.php"><img src="resources/medication-icon.png" alt="Medication Icon"></a></p>
-            <p><a href="medicalreport.php"><img src="resources/medreport-icon.png" alt="Medical Report Icon"></a></p>
+            <p><a href="medicalReport.php"><img src="resources/medreport-icon.png" alt="Medical Report Icon"></a></p>
             <p><a href="#"><img src="resources/settings-icon.png" alt="Settings Icon"></a></p>
         </div>
         <div class="sidebar-navbottom">
-            <p><a href="login.php"><img src="resources/signout-icon.png" alt="Sign Out Icon"></a></p>
+            <p><a href="logout.php"><img src="resources/signout-icon.png" alt="Log Out Icon"></a></p>
         </div>
     </aside>
 
     <main>
         <div class="user-greetings-container">
-            <h2>Hi, Abdulla Safar</h2>
+            <h2>Hi, <?php echo htmlspecialchars($username); ?></h2>
             <h1>Welcome Back!</h1>
         </div>
         <div class="checkup-reminder-container">
@@ -37,8 +47,8 @@
                 <h1>Have You Had a Routine Health Check this Month?</h1>
                 <p>Book your routine health check now!</p>
                 <div class="checkup-reminder-button">
-                    <button class="check-now-button">Check Now</button>
-                    <button class="view-report-button">View Report</button>
+                    <button class="check-now-button" onclick="doctors-bookings.php">Check Now</button>
+                    <button class="view-report-button" onclick="medicalreport.php">View Report</button>
                 </div>
             </div>
             <div class="checkup-reminder-right">

@@ -6,51 +6,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/doctors-booking.css">
     <title>Doctor Selection</title>
+
 </head>
 
 <?php
-require "connection.php";
-$sql = "SELECT * FROM healthcarepro";
-$result = $connect->query($sql);
-
-$items = [];
-if ($result->num_rows > 0) {
-    while ($row = $result->fetch_assoc()) {
-        $items[] = $row;
-    }
-}
-
-$connect->close();
+session_start();
 ?>
 
 <body>
+    <div id="user-data" data-user-id="<?php echo htmlspecialchars($_SESSION['user_id']); ?>" display="hidden"></div>
+
+    <aside class="sidebar">
+        <div class="sidebar-navtop">
+            <p><a href="home-screen.php"><img src="resources/back-icon.png" alt="Go Back to Homepage Icon"></a></p>
+            <p><a href="userdashboard.php"><img src="resources/dashboard-icon.png" alt="User Dashboard Icon"></a>
+            </p>
+            <p><a href="doctors-booking.php"><img src="resources/calendar-icon.png" alt="Appointment Icon"></a></p>
+            <p><a href="userprofile.php"><img src="resources/profile-icon.png" alt="Profile Icon"></a></p>
+            <p><a href="medication.php"><img src="resources/medication-icon.png" alt="Medication Icon"></a></p>
+            <p><a href="medicalReport.php"><img src="resources/medreport-icon.png" alt="Medical Report Icon"></a>
+            </p>
+            <p><a href="#"><img src="resources/settings-icon.png" alt="Settings Icon"></a></p>
+        </div>
+        <div class="sidebar-navbottom">
+            <p><a href="logout.php"><img src="resources/signout-icon.png" alt="Log Out Icon"></a></p>
+        </div>
+    </aside>
     <div class="main">
+
         <div class="doctor-selection">
+            <div class="spacer"></div>
             <h2>Search for a doctor in our partner facilities</h2>
-            <input type="text" id="searchInput" placeholder="Search doctors...">
+            <div class="spacer"></div>
+            <input type="text" id="search" placeholder="Search doctors...">
 
-            <div class="doctor-list">
-                <?php foreach ($items as $index => $item): ?>
-                    <div class="list-item" data-index="<?php echo $index; ?>">
-                        <h3><?php echo $item["first_name"] . " " . $item["last_name"]; ?></h3>
-                        <p><?php echo $item["specialization"]; ?></p>
+            <div id="doctors-list">
 
-                    </div>
-                <?php endforeach; ?>
             </div>
         </div>
-        <div class="doctor-details">
-            <div class="doctor-info"></div>
-            <div class="doctor-availability"></div>
-            <div class="booking"></div>
+        <div id="doctor-details">
+            <p id="choose-doctor">Choose a doctor to proceed</p>
+            <div id="details-content" style="display: none;"></div>
+            <div id="appointment-booking" style="display: none;">
+                <h2>Book Appointment</h2>
+                <div class="spacer"></div>
+                <input type="date" id="appointment-date">
+                <div id="time-slots"></div>
+                <button id="submit-appointment" style="display: none;">Book Appointment</button>
+            </div>
         </div>
     </div>
 </body>
 
 <footer>
-    <script src="js/doctors-selected.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="js/doctors-filter.js"></script>
+    <script src="js/doctors-booking.js"></script>
 </footer>
 
 </html>

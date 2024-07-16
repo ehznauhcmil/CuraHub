@@ -28,6 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION['user_id'] = $row['user_id'];
             $_SESSION['usertype'] = 'user';
             header("Location: home-screen.php"); // Redirect to user page
+            $_SESSION['username'] = $row['first_name'] . ' ' . $row['last_name'];
             exit;
         }
     } else {
@@ -43,6 +44,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $_SESSION['email'] = $email;
                 $_SESSION['usertype'] = 'admin';
                 $_SESSION['admin_id'] = $row['admin_id'];
+                $_SESSION['username'] = $row['first_name'] . ' ' . $row['last_name'];
                 header("Location: admin-dashboard.php"); // Redirect to admin page
                 exit;
             }
