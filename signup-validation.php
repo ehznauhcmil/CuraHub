@@ -1,5 +1,6 @@
 <?php
-require "connection.php";
+session_start();
+require "db-connection.php";
 if ($connect->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }

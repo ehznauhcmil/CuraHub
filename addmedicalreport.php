@@ -46,8 +46,8 @@
         <input type="text" id="type" name="type" required placeholder="Type something here">
       </div>
       <div class="form-row">
-        <label for="provider"><strong>Provider:</strong></label><br />
-        <input type="text" id="provider" name="provider" required placeholder="Provider">
+        <label for="provider"><strong>Doctor ID:</strong></label><br />
+        <input type="number" id="provider" name="provider" required placeholder="Provider">
       </div>
       <div class="form-row">
         <label for="uploadFile"><strong>Upload File:</strong></label><br />

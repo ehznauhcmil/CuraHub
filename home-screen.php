@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,7 +20,7 @@
         <a href="">Services</a>
         <a href="">Find Doctors</a>
         <a href="">Upcoming Appointments</a>
-        <button class="dashboard-button">
+        <button class="dashboard-button" id = "dashboardButton">
             Dashboard
         </button>
         <i class="fa-regular fa-bell"></i>
@@ -187,6 +191,17 @@
         // Show the selected screen
         document.getElementById(screenId).classList.add('active');
     }
+
+    document.getElementById("dashboardButton").addEventListener("click", function() {
+
+        var userType = '<?php echo $_SESSION['usertype']; ?>';
+        if (userType == 'admin') {
+            window.location.href = "admin-dashboard.php";
+        }
+        else if (userType == 'user'){
+            window.location.href = "userdashboard.php";
+        }
+    });
 </script>
 
 </html>

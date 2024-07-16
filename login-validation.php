@@ -1,7 +1,10 @@
 <?php
 session_start();
 
-require "connection.php";
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+require "db-connection.php";
 if ($connect->connect_error) {
     die("Connection failed: " . $connect->connect_error);
 }
@@ -22,10 +25,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (password_verify($password, $row['password'])) {
             $_SESSION['loggedin'] = true;
             $_SESSION['email'] = $email;
-            $_SESSION['usertype'] = 'user';
-            $_SESSION['username'] = $row['first_name'] . ' ' . $row['last_name'];
             $_SESSION['user_id'] = $row['user_id'];
-            header("Location: userdashboard.php"); // Redirect to user page
+            $_SESSION['usertype'] = 'user';
+            header("Location: home-screen.php"); // Redirect to user page
+            $_SESSION['username'] = $row['first_name'] . ' ' . $row['last_name'];
             exit;
         }
     } else {
@@ -40,8 +43,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $_SESSION['loggedin'] = true;
                 $_SESSION['email'] = $email;
                 $_SESSION['usertype'] = 'admin';
+                $_SESSION['admin_id'] = $row['admin_id'];
                 $_SESSION['username'] = $row['first_name'] . ' ' . $row['last_name'];
-                header("Location: admin-dashboard-profile.php"); // Redirect to admin page
+                header("Location: admin-dashboard.php"); // Redirect to admin page
                 exit;
             }
         }

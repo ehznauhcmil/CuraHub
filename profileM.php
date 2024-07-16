@@ -1,12 +1,22 @@
 <?php
 include 'db.php';
+session_start();
 
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 
-$user_id = 1;
+$user_id = $_SESSION['user_id'];
 
-$sql = "SELECT * FROM users WHERE id = $user_id";
+$sql = "SELECT * FROM users WHERE user_id = $user_id";
 $result = $conn->query($sql);
-$user = $result->fetch_assoc();
+
+if ($result->num_rows > 0) {
+  // Fetch the user data
+  $user = $result->fetch_assoc();
+} else {
+  echo "No user found.";
+  exit();
+} 
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -30,16 +40,16 @@ $user = $result->fetch_assoc();
       </div>
       <div>
         <div class="profile-details">
-          <h2><?php echo $user['name']; ?></h2>
+          <h2><?php echo $user['first_name'].' '.$user['last_name']; ?></h2>
           <br />
           <div class="profile-details-row">
             <div><strong>Gender:</strong> <?php echo $user['gender']; ?></div>
-            <div><strong>Birthday:</strong><br /> <?php echo $user['birthday']; ?></div>
-            <div><strong>NRIC:</strong> <?php echo $user['nric']; ?></div>
+            <div><strong>Birthday:</strong><br /> <?php echo $user['date_of_birth']; ?></div>
+            <div><strong>NRIC:</strong> <?php echo $user['identity_no']; ?></div>
             <div><strong>Address:</strong> <?php echo $user['address']; ?></div>
           </div>
           <div class="profile-details-row">
-            <div><strong>Phone Number:</strong> <?php echo $user['phone']; ?></div>
+            <div><strong>Phone Number:</strong> <?php echo $user['phone_no']; ?></div>
             <div><strong>Email:</strong> <?php echo $user['email']; ?></div>
             <div><strong>State:</strong> <?php echo $user['state']; ?></div>
             <div><strong>Country:</strong> <?php echo $user['country']; ?></div>

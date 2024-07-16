@@ -1,19 +1,24 @@
 <?php
 include 'db.php';
+session_start();
+
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 
 $description = $_POST['description'];
 $date = $_POST['date'];
 $type = $_POST['type'];
-$provider = $_POST['provider'];
+$doctor_id = $_POST['provider'];
 $uploadFile = $_FILES['uploadFile'];
+$user_id = $_SESSION['user_id'];
 
 
-$target_dir = "uploads/";
-$target_file = $target_dir . basename($uploadFile["name"]);
-move_uploaded_file($uploadFile["tmp_name"], $target_file);
+// $target_dir = "uploads/";
+// $target_file = $target_dir . basename($uploadFile["name"]);
+// move_uploaded_file($uploadFile["tmp_name"], $target_file);
 
-$sql = "INSERT INTO medical_reports (user_id, description, date, type, provider, file_path)
-VALUES (1, '$description', '$date', '$type', '$provider', '$target_file')";  // user_id را به صورت دلخواه قرار دهید
+$sql = "INSERT INTO medical_record (user_id, treatment_type, description, date, doctor_id, file)
+  VALUES ('$user_id', '$type', '$description', '$date', '$doctor_id', 'something')";  // user_id را به صورت دلخواه قرار دهید
 
 if ($conn->query($sql) === TRUE) {
   echo "New record created successfully";
