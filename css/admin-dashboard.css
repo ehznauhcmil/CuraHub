@@ -282,7 +282,7 @@ input[type = "submit"]:hover {
     color: #545454;
 }
 
-menu-buttons:hover {
+.menu-buttons:hover {
     cursor: pointer;
     background-color: #CCF3F3;
 }
