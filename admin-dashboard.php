@@ -1,44 +1,10 @@
 <?php
 include 'db-connection.php';
+include 'admin-dashboard/queries.php';
+include 'admin-dashboard/form-handler.php';
 session_start();
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
-
-$upcoming_appointments = "SELECT * FROM appointments WHERE status IN ('pending', 'accepted')";
-$completed_appointments = "SELECT * FROM appointments WHERE status = 'completed'";
-$upcoming_results = $connect->query($upcoming_appointments);
-$completed_results = $connect->query($completed_appointments);
-
-$users = "SELECT * FROM users";
-$user_results = $connect->query($users);
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Retrieve form data
-    $provider_id = 31231;
-    $first_name = $_POST['first_name'];
-    $last_name = $_POST['last_name'];
-    $specialization = $_POST['specialization'];
-    $qualification = $_POST['qualification'];
-    $university = $_POST['university'];
-    $contact = $_POST['contact'];
-
-    // Performing insert query execution
-    $sql = "INSERT INTO healthcarepro VALUES ('$provider_id', '$first_name', '$last_name', '$specialization', '$qualification', 
-                '$university', '$contact')";
-
-    if (mysqli_query($connect, $sql)) {
-        echo "<h3>data stored in a database successfully.";
-
-        header("Refresh: 2; url=admin-dashboard.php");
-        exit();
-    } else {
-        echo "ERROR: Hush! Sorry $sql. "
-            . mysqli_error($connect);
-    }
-
-    // Close connection
-    mysqli_close($connect);
-}
 
 ?>
 
@@ -54,6 +20,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 
 <body>
+    <div id="statusModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeButton">&times;</span>
+            <form action="change-status.php" method="post">
+                <h3>Select the current status</h3>
+                <select name="status-selector" id="status-selector" class="status-selector">
+                    <option value="Confirmed">Confirmed</option>
+                    <option value="Pending">Pending</option>
+                    <option value="Completed">Completed</option>
+                </select>
+                <input type="hidden" name="appointment_id" id="appointment_id">
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+    </div>
     <div class="admin-dashboard-header">
         <a href="home-screen.php" class="logo">CuraHub</a>
         <div class="spacer"></div>
@@ -97,7 +78,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         Number of users
                     </p>
                     <div>
-                        <span style="font-size: 80px; color: #007A7A">47</span>
+                        <span style = "font-size: 80px; color: #007A7A"><?php echo $total_users ?></span>
                         <img src="images/graph.png" alt="" style="width: 150px">
                     </div>
                 </div>
@@ -105,10 +86,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <!-- container two -->
                 <div class="overview-container">
                     <p style="font-size: 28px; margin: 0px; margin-bottom: 15px; color: #545454;">
-                        Number of users
+                        Number of Appointments
                     </p>
                     <div>
-                        <span style="font-size: 80px; color: #007A7A">47</span>
+                    <span style = "font-size: 80px; color: #007A7A"><?php echo $total_appointments ?></span>
                         <img src="images/graph.png" alt="" style="width: 150px">
                     </div>
                 </div>
@@ -120,16 +101,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <?php
             if ($user_results->num_rows > 0) {
                 while ($row = $user_results->fetch_assoc()) {
+                    $dob = new DateTime($row['date_of_birth']);
+                    $today = new DateTime();
+                    $age = $today->diff($dob)->y; 
                     ?>
                     <div class="user-detail-container">
                         <div class="column">
                             <div class="user-detail-container-fields">
                                 <span>Name : </span>
-                                <span style="color: #007A7A; font-weight: 900">Abdulla Safar</span>
+                                <span style = "color: #007A7A; font-weight: 900" >
+                                    <?php echo $row['first_name'].' '.$row['last_name']; ?>
+                                </span>
                             </div>
                             <div class="user-detail-container-fields">
                                 <span>Age : </span>
-                                <span style="color: #007A7A; font-weight: 900">22</span>
+                                <span style = "color: #007A7A; font-weight: 900"><?php echo $age; ?></span>
                             </div>
                         </div>
                         <div class="spacer"></div>
@@ -153,26 +139,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div class="upcoming-section" id="upcoming-section">
                 <div class="appointment-fields">
                     <span>Status</span>
-                    <span>Doctor</span>
+                    <span sytle = "padding-right: 5%;">Doctor</span>
                     <span>Location</span>
-                    <span style="padding-right: 5%;">Date and Time</span>
+                    <span style = "margin-right: 6%; padding-right: 0px">Date and Time</span>
                 </div>
 
                 <!-- Details Container -->
                 <?php
                 if ($upcoming_results->num_rows > 0) {
-                    $counter = 0;
+                    $count = 0;
                     while ($row = $upcoming_results->fetch_assoc()) {
                         if ($count < 2) {
                             ?>
                             <div class="details-container">
-                                <div class="status">
-                                    Pending
+                                <div class = "status" 
+                                    data-status="<?php echo htmlspecialchars($row['status']); ?>"
+                                    data-appointment_id="<?php echo htmlspecialchars($row['appointment_id']); ?>">
+                                    <?php echo $row['status']; ?>
                                 </div>
                                 <div class="spacer"></div>
                                 <div class="column" style="align-items: center;">
                                     <img src="images/doctor_image.png" alt="" style="width: 60px;">
-                                    <span style="font-size: 14px;">Dr. Paula Angela</span>
+                                    <span style="font-size: 14px;"></span>
                                     <span style="font-size: 10px">Gynecologist</span>
                                 </div>
                                 <div class="spacer"></div>
@@ -192,8 +180,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         } else {
                             ?>
                             <div class="details-container" style="display: none;">
-                                <div class="status">
-                                    Pending
+                                <div class = "status" 
+                                    data-status="<?php echo htmlspecialchars($row['status']); ?>"
+                                    data-appointment_id="<?php echo htmlspecialchars($row['appointment_id']); ?>">
+                                    <?php echo $row['status']; ?>
                                 </div>
                                 <div class="spacer"></div>
                                 <div class="column" style="align-items: center;">
@@ -243,8 +233,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         if ($count < 2) {
                             ?>
                             <div class="details-container">
-                                <div class="status">
-                                    Completed
+                                <div class = "status" 
+                                    data-status="<?php echo htmlspecialchars($row['status']); ?>"
+                                    data-appointment_id="<?php echo htmlspecialchars($row['appointment_id']); ?>">
+                                    <?php echo $row['status']; ?>
                                 </div>
                                 <div class="spacer"></div>
                                 <div class="column" style="align-items: center;">
@@ -269,8 +261,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         } else {
                             ?>
                             <div class="details-container" style="display: none;">
-                                <div class="status">
-                                    Completed
+                                <div class = "status" 
+                                    data-status="<?php echo htmlspecialchars($row['status']); ?>"
+                                    data-appointment_id="<?php echo htmlspecialchars($row['appointment_id']); ?>">
+                                    <?php echo $row['status']; ?>
                                 </div>
                                 <div class="spacer"></div>
                                 <div class="column" style="align-items: center;">
@@ -336,6 +330,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <h3>Contact</h3>
                         <input type="text" id="contact" name="contact" placeholder="Type Something Here" required>
                     </div>
+                </div>
+                <div class = "fields">
+                    <h3>Hospital</h3>
+                    <select id="hospital_id" name="hospital_id" class = "hospital_id_dropdown">
+                        <?php echo $hospital_options; ?>
+                    </select>
                 </div>
                 <input type="submit" value="Submit">
             </form>
