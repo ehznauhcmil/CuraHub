@@ -78,7 +78,8 @@
                         </div>
 
                         <div>
-                            <input type="text" id="identity" name="identity" autocomplete="off" required><br />
+                            <input type="text" id="identity" name="identity" placeholder="Enter your identity no."
+                                autocomplete="off" required><br />
                         </div>
 
                         <div>

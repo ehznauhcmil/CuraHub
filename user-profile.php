@@ -1,14 +1,24 @@
 <?php
-include 'db-connection.php';
 session_start();
 
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
+require "db-connection.php";
+// Check if the user is logged in
+if (!isset($_SESSION['user_id'])) {
+  echo "User ID is not set in the session. Please log in.";
+  exit();
+}
+
 $user_id = $_SESSION['user_id'];
 
-$sql = "SELECT * FROM users WHERE user_id = $user_id";
-$result = $conn->query($sql);
+// Prepare the SQL query using a prepared statement
+$stmt = $connect->prepare("SELECT * FROM users WHERE user_id = ?");
+$stmt->bind_param("s", $user_id); // Bind the user_id as a string parameter
+$stmt->execute();
+
+$result = $stmt->get_result(); // Get the result object
 
 if ($result->num_rows > 0) {
   // Fetch the user data
@@ -25,42 +35,125 @@ if ($result->num_rows > 0) {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Profile Management</title>
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/user-profile.css">
+  <link rel="stylesheet" href="css/navbar.css">
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
+  <aside class="sidebar">
+    <div class="sidebar-img-container">
+      <p><a href="home-screen.php"><img src="resources/home.png" alt="Go Back to Homepage Icon"></a></p>
+    </div>
+    <div class="sidebar-img-container">
+      <p><a href="user-dashboard.php"><img src="resources/dashboard-icon.png" alt="User Dashboard Icon"></a>
+      </p>
+    </div>
+    <div class="sidebar-img-container">
+      <p><a href="doctors-booking.php"><img src="resources/calendar-icon.png" alt="Appointment Icon"></a></p>
+    </div>
+    <div class="sidebar-img-container">
+      <p><a href="user-profile.php"><img src="resources/profile-icon.png" alt="Profile Icon"></a></p>
+    </div>
+    <div class="sidebar-img-container">
+      <p><a href="medication.php"><img src="resources/medication-icon.png" alt="Medication Icon"></a></p>
+    </div>
+    <div class="sidebar-img-container">
+      <p><a href="medical-record.php"><img src="resources/medreport-icon.png" alt="Medical Report Icon"></a>
+      </p>
+    </div>
+    <div class="sidebar-img-container">
+      <p><a href="#"><img src="resources/settings-icon.png" alt="Settings Icon"></a></p>
+    </div>
+    <div class="sidebar-img-container">
+      <p><a href="logout.php"><img src="resources/signout-icon.png" alt="Log Out Icon"></a></p>
+    </div>
+
+  </aside>
+
   <div class="container">
+
     <div class="profile-container">
-      <img src="2.JPG" alt="Mehrbod Payandeh Profile Photo" class="profile-picture">
-      <div class="button-container1">
-        <button class="profile-button1" onclick="location.href='profileeditor.php'">Edit Profile</button>
-        <button class="profile-button1" onclick="location.href='medicalReport.php'">Medical Report</button>
-        <button class="profile-button1" onclick="location.href='addmedicalreport.php'">Add Medical Report</button>
-      </div>
-      <div>
-        <div class="profile-details">
-          <h2><?php echo $user['first_name'] . ' ' . $user['last_name']; ?></h2>
-          <br />
-          <div class="profile-details-row">
-            <div><strong>Gender:</strong> <?php echo $user['gender']; ?></div>
-            <div><strong>Birthday:</strong><br /> <?php echo $user['date_of_birth']; ?></div>
-            <div><strong>NRIC:</strong> <?php echo $user['identity_no']; ?></div>
-            <div><strong>Address:</strong> <?php echo $user['address']; ?></div>
-          </div>
-          <div class="profile-details-row">
-            <div><strong>Phone Number:</strong> <?php echo $user['phone_no']; ?></div>
-            <div><strong>Email:</strong> <?php echo $user['email']; ?></div>
-            <div><strong>State:</strong> <?php echo $user['state']; ?></div>
-            <div><strong>Country:</strong> <?php echo $user['country']; ?></div>
-          </div>
+
+      <div class="profile-main">
+        <div>
+          <img src="2.JPG" alt="Mehrbod Payandeh Profile Photo" class="profile-picture">
         </div>
+        <div>
+          <h2><?php echo $user['first_name'] . ' ' . $user['last_name']; ?></h2>
+          <h3>Subang Jaya, Kuala Lumpur</h3>
+        </div>
+
+        <div class="button-container">
+          <button class="profile-button" onclick="location.href='user-profile-edit.php'">
+            <h3>Edit Profile</h3>
+          </button>
+          <button class="profile-button" onclick="location.href='medical-record.php'">
+            <h3>Medical Report</h3>
+          </button>
+          <button class="profile-button" onclick="location.href='medical-record-add.php'">
+            <h3>Add Medical Report</h3>
+          </button>
+        </div>
+      </div>
+
+      <div class="profile-details">
+
+        <div>
+          <h3>Gender:</h3>
+        </div>
+        <div>
+          <h3>Birthday:</h3>
+        </div>
+        <div>
+          <h3>NRIC:</h3>
+        </div>
+        <div>
+          <h3>Address:</h3>
+        </div>
+        <div>
+          <p><?php echo $user['gender']; ?></p>
+        </div>
+        <div>
+          <p><?php echo $user['date_of_birth']; ?></p>
+        </div>
+        <div>
+          <p><?php echo $user['identity_no']; ?></p>
+        </div>
+        <div>
+          <p><?php echo $user['address']; ?></p>
+        </div>
+        <div>
+          <h3>Phone Number:</h3>
+        </div>
+        <div>
+          <h3>Email:</h3>
+        </div>
+        <div>
+          <h3>State:</h3>
+        </div>
+        <div>
+          <h3>Country:</h3>
+        </div>
+        <div>
+          <p><?php echo $user['phone_no']; ?></p>
+        </div>
+        <div>
+          <p><?php echo $user['email']; ?></p>
+        </div>
+        <div>
+          <p><?php echo $user['state']; ?></p>
+        </div>
+        <div>
+          <p><?php echo $user['country']; ?></p>
+        </div>
+
       </div>
     </div>
 
     <div class="files-payments-container">
       <div class="files-container">
-        <h3>File/Documents</h3>
+        <h2>File/Documents</h2>
         <label>
           NRIC File:<br />
           <input type="file" name="nric">
@@ -74,8 +167,9 @@ if ($result->num_rows > 0) {
           <input type="file" name="medical_insurance">
         </label>
       </div>
+
       <div class="payments-container">
-        <h3>Payments History</h3>
+        <h2>Payments History</h2>
         <table class="payments-table">
           <thead>
             <tr>
@@ -106,10 +200,13 @@ if ($result->num_rows > 0) {
         </table>
       </div>
     </div>
+
   </div>
+
+
 </body>
 
 </html>
 <?php
-$conn->close();
+$connect->close();
 ?>

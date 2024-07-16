@@ -9,7 +9,7 @@ $user_id = $_SESSION['user_id'];
 
 $sql = "SELECT * FROM users WHERE user_id = $user_id";
 // $sql = "SELECT * FROM users WHERE email = $email";
-$result = $conn->query($sql);
+$result = $connect->query($sql);
 
 if ($result->num_rows > 0) {
   // Fetch the user data
@@ -85,5 +85,5 @@ if ($result->num_rows > 0) {
 
 </html>
 <?php
-$conn->close();
+$connect->close();
 ?>

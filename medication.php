@@ -1,35 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Medications</title>
     <link rel="icon" href="resources/site-logo.png" type="image/png"> <!-- INSERT SITE LOGO -->
-    <!-- IMPORT FILES -->
+
     <link rel="stylesheet" href="css/medication.css">
+    <link rel="stylesheet" href="css/navbar.css">
 </head>
 
 <body>
     <aside class="sidebar">
-        <div class="sidebar-navtop">
-            <p><a href="homepage.php"><img src="resources/back-icon.png" alt="Go Back to Homepage Icon"></a></p>
-            <p><a href="userdashboard.php"><img src="resources/dashboard-icon.png" alt="User Dashboard Icon"></a></p>
-            <p><a href="appointment.php"><img src="resources/calendar-icon.png" alt="Appointment Icon"></a></p>
-            <p><a href="profilepage.php"><img src="resources/profile-icon.png" alt="Profile Icon"></a></p>
+        <div class="sidebar-img-container">
+            <p><a href="home-screen.php"><img src="resources/home.png" alt="Go Back to Homepage Icon"></a></p>
+        </div>
+        <div class="sidebar-img-container">
+            <p><a href="user-dashboard.php"><img src="resources/dashboard-icon.png" alt="User Dashboard Icon"></a>
+            </p>
+        </div>
+        <div class="sidebar-img-container">
+            <p><a href="doctors-booking.php"><img src="resources/calendar-icon.png" alt="Appointment Icon"></a></p>
+        </div>
+        <div class="sidebar-img-container">
+            <p><a href="user-profile.php"><img src="resources/profile-icon.png" alt="Profile Icon"></a></p>
+        </div>
+        <div class="sidebar-img-container">
             <p><a href="medication.php"><img src="resources/medication-icon.png" alt="Medication Icon"></a></p>
-            <p><a href="medicalreport.php"><img src="resources/medreport-icon.png" alt="Medical Report Icon"></a></p>
+        </div>
+        <div class="sidebar-img-container">
+            <p><a href="medical-record.php"><img src="resources/medreport-icon.png" alt="Medical Report Icon"></a>
+            </p>
+        </div>
+        <div class="sidebar-img-container">
             <p><a href="#"><img src="resources/settings-icon.png" alt="Settings Icon"></a></p>
         </div>
-        <div class="sidebar-navbottom">
-            <p><a href="#"><img src="resources/signout-icon.png" alt="Sign Out Icon"></a></p>
+        <div class="sidebar-img-container">
+            <p><a href="logout.php"><img src="resources/signout-icon.png" alt="Log Out Icon"></a></p>
         </div>
+
     </aside>
 
     <main>
         <div class="past-appointment-prescriptions-container">
             <h2>Past Appointment Prescriptions</h2>
             <div class="scroller">
-                <div class="past-appointment-prescription-card">    
+                <div class="past-appointment-prescription-card">
                     <h2>21 June 2024 | Cough and Flu</h2>
                     <hr class="horizontal-divider">
                     <div class="card-content">
@@ -58,13 +75,13 @@
                     </div>
                 </div>
 
-                <div class="past-appointment-prescription-card">    
-                    <h2>13 April 2024  |  Gastritis</h2>
+                <div class="past-appointment-prescription-card">
+                    <h2>13 April 2024 | Gastritis</h2>
                     <hr class="horizontal-divider">
                     <div class="card-content">
                         <div class="left">
                             <p><strong>Type: </strong>Emergency Walk-in</p>
-                            <p><strong>Doctor: </strong>Dr. Khairul Ali Khan</p> <!-- check point --> 
+                            <p><strong>Doctor: </strong>Dr. Khairul Ali Khan</p> <!-- check point -->
                             <p><strong>Symptoms Log: </strong></p>
                             <ul>
                                 <li>Stomach Bloating</li>
@@ -87,13 +104,13 @@
                     </div>
                 </div>
 
-                <div class="past-appointment-prescription-card">    
-                    <h2>05 January 2024  |  Food Poisoning</h2>
+                <div class="past-appointment-prescription-card">
+                    <h2>05 January 2024 | Food Poisoning</h2>
                     <hr class="horizontal-divider">
                     <div class="card-content">
                         <div class="left">
                             <p><strong>Type: </strong>Outpatient</p>
-                            <p><strong>Doctor: </strong>Dr. Terrance Goh</p> <!-- check point --> 
+                            <p><strong>Doctor: </strong>Dr. Terrance Goh</p> <!-- check point -->
                             <p><strong>Symptoms Log: </strong></p>
                             <ul>
                                 <li>Diarrhea</li>
@@ -101,7 +118,8 @@
                                 <li>Nausea</li>
                             </ul>
                             <p><strong>Notes: </strong></p>
-                            <p>Just came back from travels in Indonesia. Already went to the doctors before flying back but symptoms still persisted.</p>
+                            <p>Just came back from travels in Indonesia. Already went to the doctors before flying back
+                                but symptoms still persisted.</p>
                         </div>
                         <hr class="vertical-divider">
                         <div class="right">
@@ -119,4 +137,5 @@
         </div>
     </main>
 </body>
+
 </html>

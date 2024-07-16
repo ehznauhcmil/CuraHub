@@ -10,43 +10,6 @@ body {
     color: black;
 }
 
-/* SIDE BAR */
-
-.sidebar {
-    height: 100vh;
-    width: 180px;
-    top: 0;
-    bottom: 0;
-    position: fixed;
-    padding: 25px 65px;
-    background-color: #efefef;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    box-sizing: border-box;
-}
-
-.sidebar img {
-    width: 50px;
-    height: 50px;
-    margin-bottom: 20px;
-}
-
-.sidebar-navbottom img {
-    width: 50px;
-    height: 50px;
-}
-
-.sidebar a:hover {
-    opacity: 0.6;
-}
-
-.sidebar-navbottom a:hover {
-    opacity: 0.6;
-}
-
-/* MAIN CONTENT */
 
 main {
     margin-left: 180px;
@@ -62,7 +25,6 @@ main {
     font-size: 24px;
 }
 
-/* CHECKUP REMINDER */
 .checkup-reminder-container {
     height: 50%;
     width: 100%;
@@ -140,8 +102,6 @@ main {
 .view-report-button:hover {
     background-color: #00aeae;
 }
-
-/* UPCOMING CHECKUP & LAST CHECKUP ROW */
 
 .bottom-row {
     width: 100%;

@@ -86,10 +86,10 @@ input[type="text"] {
   text-align:left;
   border: 1px solid rgba(61, 61, 61, 0.177);
   border-radius: 5px;
-  font-size: 18px;
+  font-size: 15px;
   padding: 10px;
-  column-gap: 15px;
   height: 10px;
+  width: 80%;
 }
 
 button {
@@ -112,14 +112,14 @@ button:hover {
 }
 p {
   margin: 0%;
-  color: #888; /* Light gray for the question part */
-  font-size: 14px; /* Adjust as needed */
+  color: #888; 
+  font-size: 14px;
 }
 
 a {
-  color: #008080; /* Teal/Turquoise for the link */
-  text-decoration: none; /* Remove default underline */
-  font-weight: bold; /* Make it slightly bolder */
+  color: #008080; 
+  text-decoration: none; 
+  font-weight: bold; 
 }
 
 .illustration-side {

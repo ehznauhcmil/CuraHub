@@ -32,7 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             exit;
         }
     } else {
-        $stmt = $connect->prepare("SELECT * FROM admin WHERE email = ?");
+        $stmt = $connect->prepare("SELECT * FROM admins WHERE email = ?");
         $stmt->bind_param("s", $email);
         $stmt->execute();
         $result = $stmt->get_result();
@@ -53,5 +53,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Invalid credentials
     echo "Invalid email or password";
+    header("Location: login.php");
 }
 ?>

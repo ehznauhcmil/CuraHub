@@ -20,13 +20,13 @@ $user_id = $_SESSION['user_id'];
 $sql = "INSERT INTO medical_record (user_id, treatment_type, description, date, doctor_id, file)
   VALUES ('$user_id', '$type', '$description', '$date', '$doctor_id', 'something')";  // user_id را به صورت دلخواه قرار دهید
 
-if ($conn->query($sql) === TRUE) {
+if ($connect->query($sql) === TRUE) {
   echo "New record created successfully";
 } else {
-  echo "Error: " . $sql . "<br>" . $conn->error;
+  echo "Error: " . $sql . "<br>" . $connect->error;
 }
 
-$conn->close();
+$connect->close();
 ?>
 <!DOCTYPE html>
 <html lang="en">

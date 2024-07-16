@@ -6,14 +6,11 @@ ini_set('display_errors', 1);
 
 $upcoming_appointments = "SELECT * FROM appointments WHERE status IN ('pending', 'accepted')";
 $completed_appointments = "SELECT * FROM appointments WHERE status = 'completed'";
-$upcoming_results = $conn->query($upcoming_appointments);
-$completed_results = $conn->query($completed_appointments);
+$upcoming_results = $connect->query($upcoming_appointments);
+$completed_results = $connect->query($completed_appointments);
 
 $users = "SELECT * FROM users";
-$user_results = $conn->query($users);
-
-include 'db-connection.php';
-session_start();
+$user_results = $connect->query($users);
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Retrieve form data
@@ -29,18 +26,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $sql = "INSERT INTO healthcarepro VALUES ('$provider_id', '$first_name', '$last_name', '$specialization', '$qualification', 
                 '$university', '$contact')";
 
-    if (mysqli_query($conn, $sql)) {
+    if (mysqli_query($connect, $sql)) {
         echo "<h3>data stored in a database successfully.";
 
         header("Refresh: 2; url=admin-dashboard.php");
         exit();
     } else {
         echo "ERROR: Hush! Sorry $sql. "
-            . mysqli_error($conn);
+            . mysqli_error($connect);
     }
 
     // Close connection
-    mysqli_close($conn);
+    mysqli_close($connect);
 }
 
 ?>
@@ -300,7 +297,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     echo '<div class="no-appointments">No Completed Appointments</div>';
                 }
                 // Close the database connection
-                // $conn->close();
+                // $connect->close();
                 ?>
                 <button class="expand-button" id="expand-completed-button" onclick="loadMoreAppointments('completed')">
                     <i class="fa-solid fa-caret-down"></i>
