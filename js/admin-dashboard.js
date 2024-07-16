@@ -43,3 +43,63 @@ document.getElementById("logoutButton").addEventListener("click", function() {
         window.location.href = "login.php";
 });
 
+document.addEventListener('DOMContentLoaded', function() {
+       // Get all status elements
+       var statusDivs = document.querySelectorAll('.status');
+       
+       // Iterate through each status element
+       statusDivs.forEach(function(statusDiv) {
+           // Get the status value from the data attribute
+           var status = statusDiv.getAttribute('data-status');
+           
+           // Determine the background color based on the status
+           var backgroundColor;
+           switch (status) {
+               case "Confirmed":
+                   backgroundColor = "#28a745"; // Green for success
+                   break;
+               case "Completed":
+                   backgroundColor = "#ffc107"; // Yellow for warning
+                   break;
+               case "Pending":
+                   backgroundColor = "#BD0000"; // Red for error
+                   break;
+               default:
+                   backgroundColor = "#6c757d"; // Grey for default or unknown status
+                   break;
+           }
+           
+           // Set the background color
+           statusDiv.style.backgroundColor = backgroundColor;
+       });
+   });
+   
+   // Get the modal
+   var modal = document.getElementById("statusModal");
+   
+   // Get the button that opens the modal
+   var statusDivs = document.querySelectorAll('.status');
+   
+// Get the <span> element that closes the modal
+// var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on the status div, open the modal
+statusDivs.forEach(function(statusDiv) {
+    statusDiv.addEventListener('click', function() {
+        var status = statusDiv.getAttribute('data-status');
+        var appointmentId = statusDiv.getAttribute('data-appointment_id');
+        document.getElementById("appointment_id").value = appointmentId;
+        modal.style.display = "block";
+    });
+});
+
+document.getElementById("closeButton").onclick = function() {
+    modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
