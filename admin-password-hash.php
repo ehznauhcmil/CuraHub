@@ -1,6 +1,6 @@
 <?php
 session_start();
-require "db-connection.php";
+include "db-connection.php";
 
 $admin_id = 10011;
 $password = "123";

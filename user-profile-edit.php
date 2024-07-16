@@ -1,5 +1,5 @@
 <?php
-include 'db.php';
+include 'db-connection.php';
 session_start();
 
 error_reporting(E_ALL);
@@ -17,7 +17,7 @@ if ($result->num_rows > 0) {
 } else {
   echo "No user found.";
   exit();
-} 
+}
 ?>
 
 <!DOCTYPE html>

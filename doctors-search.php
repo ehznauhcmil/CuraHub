@@ -1,5 +1,5 @@
 <?php
-require 'connection.php';
+include 'db-connection.php';
 
 // 2. Get Search Term and Sanitize
 $searchTerm = isset($_GET['search']) ? $_GET['search'] : ''; // Get search term from query string

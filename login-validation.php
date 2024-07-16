@@ -4,7 +4,7 @@ session_start();
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-require "db-connection.php";
+include "db-connection.php";
 if ($connect->connect_error) {
     die("Connection failed: " . $connect->connect_error);
 }

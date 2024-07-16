@@ -20,9 +20,7 @@ session_start();
         <a href="">Services</a>
         <a href="">Find Doctors</a>
         <a href="">Upcoming Appointments</a>
-        <button class="dashboard-button" id = "dashboardButton">
-            Dashboard
-        </button>
+        <button class="dashboard-button" id="dashboardButton">Dashboard</button>
         <i class="fa-regular fa-bell"></i>
     </div>
 
@@ -118,7 +116,7 @@ session_start();
                     </span>
                 </div>
             </div>
-            <div class = "spacer"></div>
+            <div class="spacer"></div>
             <div class="review-container">
                 <img src="images/Rating.png" alt="" style="width: 35%">
                 <h6>Review Title</h6>
@@ -184,7 +182,7 @@ session_start();
     function showScreen(screenId) {
         // Hide all screens
         var screens = document.querySelectorAll('.screen');
-        screens.forEach(function(screen) {
+        screens.forEach(function (screen) {
             screen.classList.remove('active');
         });
 
@@ -192,14 +190,14 @@ session_start();
         document.getElementById(screenId).classList.add('active');
     }
 
-    document.getElementById("dashboardButton").addEventListener("click", function() {
+    document.getElementById("dashboardButton").addEventListener("click", function () {
 
         var userType = '<?php echo $_SESSION['usertype']; ?>';
         if (userType == 'admin') {
             window.location.href = "admin-dashboard.php";
         }
-        else if (userType == 'user'){
-            window.location.href = "userdashboard.php";
+        else if (userType == 'user') {
+            window.location.href = "user-dashboard.php";
         }
     });
 </script>

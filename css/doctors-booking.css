@@ -34,7 +34,8 @@ p {
   grid-template-columns: 1fr 1fr;
   grid-template-rows: auto;
   margin-left: 180px;
-  padding: 3%;
+  padding: 25px 100px 50px 100px;
+  box-sizing: border-box;
 }
 
 .sidebar {

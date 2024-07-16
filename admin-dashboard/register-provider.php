@@ -13,20 +13,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $contact = $_POST['contact'];
 
     // Performing insert query execution
-        $sql = "INSERT INTO healthcarepro VALUES ('$provider_id', '$first_name', '$last_name', '$specialization', '$qualification', 
+    $sql = "INSERT INTO healthcarepro VALUES ('$provider_id', '$first_name', '$last_name', '$specialization', '$qualification', 
             '$university', '$contact')";
-        
-        if(mysqli_query($conn, $sql)){
-            echo "<h3>data stored in a database successfully." ; 
 
-                header("Refresh: 2; url=admin-dashboard.php");
-                exit();
-        } else{
-            echo "ERROR: Hush! Sorry $sql. " 
-                . mysqli_error($conn);
-        }
-        
-        // Close connection
-        mysqli_close($conn);
+    if (mysqli_query($conn, $sql)) {
+        echo "<h3>data stored in a database successfully.";
+
+        header("Refresh: 2; url=admin-dashboard.php");
+        exit();
+    } else {
+        echo "ERROR: Hush! Sorry $sql. "
+            . mysqli_error($conn);
+    }
+
+    // Close connection
+    mysqli_close($conn);
 }
 ?>

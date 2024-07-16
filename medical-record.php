@@ -1,5 +1,5 @@
 <?php
-include 'db.php';
+include 'db-connection.php';
 session_start();
 
 error_reporting(E_ALL);
@@ -7,7 +7,7 @@ ini_set('display_errors', 1);
 
 $user_id = $_SESSION['user_id'];
 
-$sql = "SELECT * FROM medical_record WHERE user_id = $user_id"; 
+$sql = "SELECT * FROM medical_record WHERE user_id = $user_id";
 $result = $conn->query($sql);
 ?>
 

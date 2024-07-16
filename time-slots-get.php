@@ -1,7 +1,7 @@
 <?php
 header('Content-Type: application/json');
 
-require "connection.php";
+include "db-connection.php";
 
 try {
     if (!isset($_GET['doctor_id']) || !isset($_GET['date'])) {

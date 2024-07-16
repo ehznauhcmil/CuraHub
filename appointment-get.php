@@ -1,6 +1,6 @@
 <?php
 session_start();
-require "connection.php";
+include "db-connection.php";
 
 $userId = $_SESSION['user_id'];
 

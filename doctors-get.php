@@ -3,7 +3,7 @@
 
 header('Content-Type: application/json');
 
-require "connection.php";
+include "db-connection.php";
 
 $search = isset($_GET['search']) ? $connect->real_escape_string($_GET['search']) : '';
 

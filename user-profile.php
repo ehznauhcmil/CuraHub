@@ -1,5 +1,5 @@
 <?php
-include 'db.php';
+include 'db-connection.php';
 session_start();
 
 error_reporting(E_ALL);
@@ -16,7 +16,7 @@ if ($result->num_rows > 0) {
 } else {
   echo "No user found.";
   exit();
-} 
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -40,7 +40,7 @@ if ($result->num_rows > 0) {
       </div>
       <div>
         <div class="profile-details">
-          <h2><?php echo $user['first_name'].' '.$user['last_name']; ?></h2>
+          <h2><?php echo $user['first_name'] . ' ' . $user['last_name']; ?></h2>
           <br />
           <div class="profile-details-row">
             <div><strong>Gender:</strong> <?php echo $user['gender']; ?></div>

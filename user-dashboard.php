@@ -15,19 +15,20 @@ $username = isset($_SESSION['username']) ? $_SESSION['username'] : 'User';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Dashboard</title>
-    <link rel="stylesheet" href="css/userdashboard.css">
+    <link rel="stylesheet" href="css/user-dashboard.css">
 </head>
 
 <body>
     <div id="user-data" data-user-id="<?php echo htmlspecialchars($_SESSION['user_id']); ?>" display="hidden"></div>
     <aside class="sidebar">
         <div class="sidebar-navtop">
-            <p><a href="home-screen.php"><img src="resources/back-icon.png" alt="Go Back to Homepage Icon"></a></p>
-            <p><a href="userdashboard.php"><img src="resources/dashboard-icon.png" alt="User Dashboard Icon"></a></p>
-            <p><a href="appointment.php"><img src="resources/calendar-icon.png" alt="Appointment Icon"></a></p>
-            <p><a href="profileM.php"><img src="resources/profile-icon.png" alt="Profile Icon"></a></p>
+            <p><a href="home-screen.php"><img src="resources/home.png" alt="Go Back to Homepage Icon"></a></p>
+            <p><a href="user-dashboard.php"><img src="resources/dashboard-icon.png" alt="User Dashboard Icon"></a></p>
+            <p><a href="doctors-booking.php"><img src="resources/calendar-icon.png" alt="Appointment Icon"></a></p>
+            <p><a href="user-profile.php"><img src="resources/profile-icon.png" alt="Profile Icon"></a></p>
             <p><a href="medication.php"><img src="resources/medication-icon.png" alt="Medication Icon"></a></p>
-            <p><a href="medicalReport.php"><img src="resources/medreport-icon.png" alt="Medical Report Icon"></a></p>
+            <p><a href="medical-record.php"><img src="resources/medreport-icon.png" alt="Medical Report Icon"></a>
+            </p>
             <p><a href="#"><img src="resources/settings-icon.png" alt="Settings Icon"></a></p>
         </div>
         <div class="sidebar-navbottom">
@@ -48,7 +49,8 @@ $username = isset($_SESSION['username']) ? $_SESSION['username'] : 'User';
                 <div class="checkup-reminder-button">
                     <button class="check-now-button" onclick="window.location.href='doctors-booking.php'">Check
                         Now</button>
-                    <button class="view-report-button" onclick="medicalreport.php">View Report</button>
+                    <button class="view-report-button" onclick="window.location.href='medicalreport.php'">View
+                        Report</button>
                 </div>
             </div>
             <div class="checkup-reminder-right">
@@ -71,7 +73,7 @@ $username = isset($_SESSION['username']) ? $_SESSION['username'] : 'User';
 </body>
 
 <footer>
-    <script src="js/userdashboard.js"></script>
+    <script src="js/user-dashboard.js"></script>
 </footer>
 
 </html>

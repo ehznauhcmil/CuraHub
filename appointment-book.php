@@ -1,7 +1,7 @@
 <?php
 header('Content-Type: application/json');
 
-require "connection.php";
+include "db-connection.php";
 
 try {
     if (!isset($_POST['doctor_id']) || !isset($_POST['date']) || !isset($_POST['slot_id']) || !isset($_POST['user_id'])) {
