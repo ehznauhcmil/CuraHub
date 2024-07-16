@@ -7,17 +7,17 @@
     <title>Appointments</title>
     <link rel="icon" href="resources/site-logo.png" type="image/png"> <!-- INSERT SITE LOGO -->
     <!-- IMPORT FILES -->
-    <link rel="stylesheet" href="css/appointment.css.css">
+    <link rel="stylesheet" href="css/appointment.css">
 </head>
 
 <body>
     <aside class="sidebar">
         <div class="sidebar-navtop">
             <p><a href="home-screen.php"><img src="resources/back-icon.png" alt="Go Back to Homepage Icon"></a></p>
-            <p><a href="userdashboard.html"><img src="resources/dashboard-icon.png" alt="User Dashboard Icon"></a></p>
+            <p><a href="userdashboard.php"><img src="resources/dashboard-icon.png" alt="User Dashboard Icon"></a></p>
             <p><a href="appointment.html"><img src="resources/calendar-icon.png" alt="Appointment Icon"></a></p>
             <p><a href="userprofile.php"><img src="resources/profile-icon.png" alt="Profile Icon"></a></p>
-            <p><a href="medication.html"><img src="resources/medication-icon.png" alt="Medication Icon"></a></p>
+            <p><a href="medication.php"><img src="resources/medication-icon.png" alt="Medication Icon"></a></p>
             <p><a href="medicalReport.php"><img src="resources/medreport-icon.png" alt="Medical Report Icon"></a></p>
             <p><a href="#"><img src="resources/settings-icon.png" alt="Settings Icon"></a></p>
         </div>

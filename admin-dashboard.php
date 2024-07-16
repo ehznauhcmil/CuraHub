@@ -1,11 +1,16 @@
 <?php
     include 'db.php';
     session_start();
+    error_reporting(E_ALL);
+    ini_set('display_errors', 1);   
     
-    $upcoming_appointments = "SELECT * FROM appointment WHERE status IN ('pending', 'accepted')";
-    $completed_appointments = "SELECT * FROM appointment WHERE status = 'completed'";
+    $upcoming_appointments = "SELECT * FROM appointments WHERE status IN ('pending', 'accepted')";
+    $completed_appointments = "SELECT * FROM appointments WHERE status = 'completed'";
     $upcoming_results = $conn->query($upcoming_appointments);
     $completed_results = $conn->query($completed_appointments);
+
+    $users = "SELECT * FROM users";
+    $user_results = $conn->query($users);
 
     include 'db.php';
     session_start();
@@ -113,6 +118,10 @@
             <h3>
                 User List
             </h3>
+            <?php
+                if ($user_results->num_rows > 0) {
+                    while ($row = $user_results->fetch_assoc()) {
+            ?>
             <div class = "user-detail-container">
                 <div class = "column">
                     <div class = "user-detail-container-fields">
@@ -132,6 +141,10 @@
                     </a>
                 </div>
             </div>
+            <?php
+                    }
+                }
+            ?>
         </div> 
         
         <!-- appointments -->
