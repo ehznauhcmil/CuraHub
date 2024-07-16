@@ -15,12 +15,11 @@ $username = isset($_SESSION['username']) ? $_SESSION['username'] : 'User';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Dashboard</title>
-    <link rel="icon" href="resources/site-logo.png" type="image/png"> <!-- INSERT SITE LOGO -->
-    <!-- IMPORT FILES -->
     <link rel="stylesheet" href="css/userdashboard.css">
 </head>
 
 <body>
+    <div id="user-data" data-user-id="<?php echo htmlspecialchars($_SESSION['user_id']); ?>" display="hidden"></div>
     <aside class="sidebar">
         <div class="sidebar-navtop">
             <p><a href="home-screen.php"><img src="resources/back-icon.png" alt="Go Back to Homepage Icon"></a></p>
@@ -47,7 +46,8 @@ $username = isset($_SESSION['username']) ? $_SESSION['username'] : 'User';
                 <h1>Have You Had a Routine Health Check this Month?</h1>
                 <p>Book your routine health check now!</p>
                 <div class="checkup-reminder-button">
-                    <button class="check-now-button" onclick="doctors-bookings.php">Check Now</button>
+                    <button class="check-now-button" onclick="window.location.href='doctors-booking.php'">Check
+                        Now</button>
                     <button class="view-report-button" onclick="medicalreport.php">View Report</button>
                 </div>
             </div>
@@ -56,69 +56,22 @@ $username = isset($_SESSION['username']) ? $_SESSION['username'] : 'User';
             </div>
         </div>
         <div class="bottom-row">
-            <div class="upcoming-checkup-container">
-                <h2>Upcoming Checkup</h2>
-                <div class="scroller">
-                    <div class="upcoming-checkup-list">
-                        <div class="list-date">
-                            <h3>11 Jul</h3>
-                            <h3>9am</h3>
-                        </div>
-                        <div class="list-details">
-                            <h3>Blood Test</h3>
-                            <p>Subang Jaya Medical Centre</p>
-                        </div>
-                    </div>
-                    <div class="upcoming-checkup-list">
-                        <div class="list-date">
-                            <h3>23 Sept</h3>
-                            <h3>2pm</h3>
-                        </div>
-                        <div class="list-details">
-                            <h3>MRI Scan</h3>
-                            <p>Sunway Medical Centre</p>
-                        </div>
-                    </div>
-                    <div class="upcoming-checkup-list">
-                        <div class="list-date">
-                            <h3>30 Nov</h3>
-                            <h3>11am</h3>
-                        </div>
-                        <div class="list-details">
-                            <h3>Thyroid Function Test</h3>
-                            <p>UNI KL Clinic</p>
-                        </div>
-                    </div>
-                </div>
+            <div id="upcoming-appointments">
+                <h2>Upcoming Appointments</h2>
+                <div id="upcoming-list"></div>
             </div>
-            <div class="last-checkup-container">
-                <h2>Your Last Health Check</h2>
-                <div class="scroller">
-                    <div class="last-checkup-list">
-                        <img src="resources/kidney-checkup-icon.png" alt="Kidney Checkup Icon">
-                        <div class="list-details">
-                            <h3>Regular Kidney Check</h3>
-                            <p>09 October 2023</p>
-                        </div>
-                    </div>
-                    <div class="last-checkup-list">
-                        <img src="resources/dental-checkup-icon.png" alt="Dental Checkup Icon">
-                        <div class="list-details">
-                            <h3>Dental Health</h3>
-                            <p>18 January 2024</p>
-                        </div>
-                    </div>
-                    <div class="last-checkup-list">
-                        <img src="resources/heart-checkup-icon.png" alt="Heart Checkup Icon">
-                        <div class="list-details">
-                            <h3>Heart Stress Test</h3>
-                            <p>21 August 2023</p>
-                        </div>
-                    </div>
-                </div>
+
+            <div id="past-appointments">
+                <h2>Past Appointments</h2>
+                <div id="past-list"></div>
             </div>
+
         </div>
     </main>
 </body>
+
+<footer>
+    <script src="js/userdashboard.js"></script>
+</footer>
 
 </html>

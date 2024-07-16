@@ -48,4 +48,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
 }
-?>
+function generateUserId()
+{
+    require "connection.php";
+    if ($connect->connect_error) {
+        die("Connection failed: " . $connect->connect_error);
+    }
+
+    // Get and update the user counter
+    $stmt = $connect->prepare("UPDATE counters SET counter_value = counter_value + 1 WHERE counter_type = 'user'");
+    $stmt->execute();
+
+    // Get the updated counter value
+    $stmt = $db->prepare("SELECT counter_value FROM user_counters WHERE counter_type = 'user'");
+    $stmt->execute();
+    $counterValue = $stmt->fetchColumn();
+
+    // Generate the formatted ID
+    $userId = 'U' . str_pad($counterValue, 3, '0', STR_PAD_LEFT);
+
+    // Commit the transaction (release the lock)
+    $db->commit();
+
+    return $userId;
+}
