@@ -1,29 +1,10 @@
-<?php
-include 'db-connection.php';
-session_start();
-
-if (!isset($_SESSION['user_id'])) {
-  header("Location: login.php"); // Redirect to login page
-  exit();
-}
-
-$stmt = $connect->prepare("SELECT * FROM medical_record WHERE user_id = ?");
-$stmt->bind_param("s", $user_id); // "s" indicates the parameter is a string
-$stmt->execute();
-$result = $stmt->get_result();
-
-?>
-
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Medical Records</title>
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/medical-record.css">
   <link rel="stylesheet" href="css/navbar.css">
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -58,43 +39,35 @@ $result = $stmt->get_result();
   </aside>
   <div class="container">
     <h1>Medical Records</h1>
-    <table class="visits-table">
+    <table class="visits-table" id="medicalRecordsTable">
       <thead>
         <tr>
           <th>Record ID</th>
           <th>Treatment Type</th>
           <th>Description</th>
           <th>Date</th>
-          <th>Doctor ID</th>
-          <th>File</th>
+          <th>Doctor Name</th>
         </tr>
       </thead>
       <tbody>
-        <?php while ($row = $result->fetch_assoc()): ?>
-          <tr>
-            <td><?php echo $row['record_id']; ?></td>
-            <td><?php echo $row['treatment_type']; ?></td>
-            <td><?php echo $row['description']; ?></td>
-            <td><?php echo $row['date']; ?></td>
-            <td><?php echo $row['doctor_id']; ?></td>
-            <td><a href="<?php echo $row['file']; ?>" target="_blank">View File</a></td>
-          </tr>
-        <?php endwhile; ?>
       </tbody>
     </table>
-    <div class="button-container">
-      <button class="profile-button" onclick="location.href='addmedicalreport.php'"
-        style="margin-bottom: 10px; margin-top:10px" type="button">Add Medical
-        Report</button>
-      <button class="profile-button" onclick="location.href='profileM.php'"
-        style="margin-bottom: 10px; margin-top:5px">Back to
-        Profile</button>
 
+    <div class="button-container">
+      <button class="profile-button" onclick="location.href='medical-record-add.php'">
+        <h3>Add Medical Report</h3>
+      </button>
+      <button class="profile-button" onclick="location.href='user-profile.php'">
+        <h3>Back to Profile</h3>
+      </button>
     </div>
+
   </div>
+
+  <script src="js/medical-record.js">
+
+  </script>
+
 </body>
 
 </html>
-<?php
-$connect->close();
-?>

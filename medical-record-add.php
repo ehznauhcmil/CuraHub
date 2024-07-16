@@ -42,7 +42,7 @@
   </aside>
 
   <div class="container">
-    <h1>Add Medical Report</h1>
+    <h1>Add Medical Records</h1>
     <form action="medical-record-submit.php" method="post" enctype="multipart/form-data">
       <div class="form-fields">
         <div>
@@ -67,7 +67,7 @@
 
         <div>
           <label for="type">
-            <h3>Type:</h3>
+            <h3>Treatment Type:</h3>
           </label>
         </div>
 
@@ -89,7 +89,12 @@
       <div class="spacer"></div>
 
       <div class="button-container">
-        <button type="submit" class="profile-button">Submit</button>
+        <button type="submit" class="profile-button">
+          <h3>Submit</h3>
+        </button>
+        <button class="profile-button" onclick="window.location.href='user-profile.php'">
+          <h3>Back to Profile</h3>
+        </button>
       </div>
     </form>
   </div>
