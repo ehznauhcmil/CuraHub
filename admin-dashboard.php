@@ -140,7 +140,7 @@ ini_set('display_errors', 1);
                 <div class="appointment-fields">
                     <span>Status</span>
                     <span sytle = "padding-right: 5%;">Doctor</span>
-                    <span>Location</span>
+                    <span sytle = "padding-right: 5%;">Location</span>
                     <span style = "margin-right: 6%; padding-right: 0px">Date and Time</span>
                 </div>
 
@@ -160,19 +160,21 @@ ini_set('display_errors', 1);
                                 <div class="spacer"></div>
                                 <div class="column" style="align-items: center;">
                                     <img src="images/doctor_image.png" alt="" style="width: 60px;">
-                                    <span style="font-size: 14px;"></span>
-                                    <span style="font-size: 10px">Gynecologist</span>
+                                    <span style="font-size: 14px;"><?php echo $row['first_name'].' '.$row['last_name']; ?></span>
+                                    <span style="font-size: 10px"><?php echo $row['specialization']; ?></span>
                                 </div>
                                 <div class="spacer"></div>
                                 <div class="column" style="align-items: center;">
                                     <i class="fa-solid fa-location-dot"></i>
-                                    <span style="font-size: 14px;">Suriamas Condo, Jalan Pjs</span>
-                                    <span style="font-size: 14px; color: #676767;">Selangor, Malaysia</span>
+                                    <span style="font-size: 14px; width: 200px"><?php echo $row['hospital_address']; ?></span>
+                                    <!-- <span style="font-size: 14px; color: #676767;">Selangor, Malaysia</span> -->
                                 </div>
                                 <div class="spacer"></div>
-                                <div class="column" style="align-items: center; margin-right: 11%">
-                                    <span style="color: #00C2C2; font-size: 24px; font-weight: bold">10:30 AM</span>
-                                    <span style="font-size: 20px">21st April, 2024</span>
+                                <div class="column" style="align-items: center; margin-right: 3%">
+                                    <span style="color: #00C2C2; font-size: 20px; font-weight: bold">
+                                        <?php echo $row['start_time'].'-'.$row['end_time']; ?>
+                                    </span>
+                                    <span style="font-size: 20px"><?php echo $row['date']; ?></span>
                                 </div>
                             </div>
                             <?php
@@ -188,19 +190,21 @@ ini_set('display_errors', 1);
                                 <div class="spacer"></div>
                                 <div class="column" style="align-items: center;">
                                     <img src="images/doctor_image.png" alt="" style="width: 60px;">
-                                    <span style="font-size: 14px;">Dr. Paula Angela</span>
-                                    <span style="font-size: 10px">Gynecologist</span>
+                                    <span style="font-size: 14px;"><?php echo $row['first_name'].' '.$row['last_name']; ?></span>
+                                    <span style="font-size: 10px"><?php echo $row['specialization']; ?></span>
                                 </div>
                                 <div class="spacer"></div>
                                 <div class="column" style="align-items: center;">
                                     <i class="fa-solid fa-location-dot"></i>
-                                    <span style="font-size: 14px;">Suriamas Condo, Jalan Pjs</span>
-                                    <span style="font-size: 14px; color: #676767;">Selangor, Malaysia</span>
+                                    <span style="font-size: 14px; width: 200px"><?php echo $row['hospital_address']; ?></span>
+                                    <!-- <span style="font-size: 14px; color: #676767;">Selangor, Malaysia</span> -->
                                 </div>
                                 <div class="spacer"></div>
-                                <div class="column" style="align-items: center; margin-right: 11%">
-                                    <span style="color: #00C2C2; font-size: 24px; font-weight: bold">10:30 AM</span>
-                                    <span style="font-size: 20px">21st April, 2024</span>
+                                <div class="column" style="align-items: center; margin-right: 3%">
+                                    <span style="color: #00C2C2; font-size: 20px; font-weight: bold">
+                                        <?php echo $row['start_time'].'-'.$row['end_time']; ?>
+                                    </span>
+                                    <span style="font-size: 20px"><?php echo $row['date']; ?></span>
                                 </div>
                             </div>
                             <?php
@@ -241,19 +245,21 @@ ini_set('display_errors', 1);
                                 <div class="spacer"></div>
                                 <div class="column" style="align-items: center;">
                                     <img src="images/doctor_image.png" alt="" style="width: 60px;">
-                                    <span style="font-size: 14px;">Dr. Paula Angela</span>
-                                    <span style="font-size: 10px">Gynecologist</span>
+                                    <span style="font-size: 14px;"><?php echo $row['first_name'].' '.$row['last_name']; ?></span>
+                                    <span style="font-size: 10px"><?php echo $row['specialization']; ?></span>
                                 </div>
                                 <div class="spacer"></div>
                                 <div class="column" style="align-items: center;">
                                     <i class="fa-solid fa-location-dot"></i>
-                                    <span style="font-size: 14px;">Suriamas Condo, Jalan Pjs</span>
-                                    <span style="font-size: 14px; color: #676767;">Selangor, Malaysia</span>
+                                    <span style="font-size: 14px; width: 200px"><?php echo $row['hospital_address']; ?></span>
+                                    <!-- <span style="font-size: 14px; color: #676767;">Selangor, Malaysia</span> -->
                                 </div>
                                 <div class="spacer"></div>
-                                <div class="column" style="align-items: center; margin-right: 11%">
-                                    <span style="color: #00C2C2; font-size: 24px; font-weight: bold">10:30 AM</span>
-                                    <span style="font-size: 20px">21st April, 2024</span>
+                                <div class="column" style="align-items: center; margin-right: 3%">
+                                    <span style="color: #00C2C2; font-size: 20px; font-weight: bold">
+                                        <?php echo $row['start_time'].'-'.$row['end_time']; ?>
+                                    </span>
+                                    <span style="font-size: 20px"><?php echo $row['date']; ?></span>
                                 </div>
                             </div>
                             <?php
@@ -269,19 +275,21 @@ ini_set('display_errors', 1);
                                 <div class="spacer"></div>
                                 <div class="column" style="align-items: center;">
                                     <img src="images/doctor_image.png" alt="" style="width: 60px;">
-                                    <span style="font-size: 14px;">Dr. Paula Angela</span>
-                                    <span style="font-size: 10px">Gynecologist</span>
+                                    <span style="font-size: 14px;"><?php echo $row['first_name'].' '.$row['last_name']; ?></span>
+                                    <span style="font-size: 10px"><?php echo $row['specialization']; ?></span>
                                 </div>
                                 <div class="spacer"></div>
                                 <div class="column" style="align-items: center;">
                                     <i class="fa-solid fa-location-dot"></i>
-                                    <span style="font-size: 14px;">Suriamas Condo, Jalan Pjs</span>
-                                    <span style="font-size: 14px; color: #676767;">Selangor, Malaysia</span>
+                                    <span style="font-size: 14px; width: 200px"><?php echo $row['hospital_address']; ?></span>
+                                    <!-- <span style="font-size: 14px; color: #676767;">Selangor, Malaysia</span> -->
                                 </div>
                                 <div class="spacer"></div>
-                                <div class="column" style="align-items: center; margin-right: 11%">
-                                    <span style="color: #00C2C2; font-size: 24px; font-weight: bold">10:30 AM</span>
-                                    <span style="font-size: 20px">21st April, 2024</span>
+                                <div class="column" style="align-items: center; margin-right: 3%">
+                                    <span style="color: #00C2C2; font-size: 20px; font-weight: bold">
+                                        <?php echo $row['start_time'].'-'.$row['end_time']; ?>
+                                    </span>
+                                    <span style="font-size: 20px"><?php echo $row['date']; ?></span>
                                 </div>
                             </div>
                             <?php

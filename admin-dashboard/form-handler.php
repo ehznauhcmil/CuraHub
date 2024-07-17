@@ -1,4 +1,5 @@
 <?php
+include "db-connection.php";
  if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Retrieve form data
@@ -11,7 +12,7 @@
     $contact = $_POST['contact'];
 
         // Use a prepared statement to prevent SQL injection
-        $stmt = $conn->prepare("INSERT INTO doctors (first_name, last_name, specialization,  
+        $stmt = $connect->prepare("INSERT INTO doctors (first_name, last_name, specialization,  
             hospital_id, qualification, university, contact) VALUES (?, ?, ?, ?, ?, ?, ?)");
         $stmt->bind_param("sssisss", $first_name, $last_name, $specialization,  
         $hospital_id, $qualification, $university, $contact);
