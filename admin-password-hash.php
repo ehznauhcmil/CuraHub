@@ -2,12 +2,12 @@
 session_start();
 include "db-connection.php";
 
-$admin_id = 1003;
+$admin_id = 1009;
 $password = "1234";
 $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-$email = "cz@gmail.com";
-$first_name = "Lim";
-$last_name = "ChuanZhe";
+$email = "curahub@gmail.com";
+$first_name = "Ad";
+$last_name = "Min";
 
 
 // Use a prepared statement to insert the hashed password into the database

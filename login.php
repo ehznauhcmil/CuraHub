@@ -27,10 +27,12 @@
                     <input type="password" id="password" name="password" placeholder="********************"
                         autocomplete="off" required><br />
 
-                    <button type="submit" id="login-button">LOGIN ACCOUNT</button><br /><br />
+                    <button type="submit" id="login-button">
+                        LOGIN
+                    </button><br /><br />
                     <div class="signup-link">
                         <p>
-                            Don't you have any account? <a href="signup.php"> Sign Up Here</a>
+                            Don't have an account? <a href="signup.php"> Sign Up Here</a>
                         </p>
                     </div>
 

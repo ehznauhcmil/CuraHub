@@ -55,7 +55,7 @@
 
     <div class="button-container">
       <button class="profile-button" onclick="location.href='medical-record-add.php'">
-        <h3>Add Medical Report</h3>
+        <h3>Add Medical Record</h3>
       </button>
       <button class="profile-button" onclick="location.href='user-profile.php'">
         <h3>Back to Profile</h3>
