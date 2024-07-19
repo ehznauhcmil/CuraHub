@@ -80,8 +80,6 @@ document.addEventListener('DOMContentLoaded', function() {
    // Get the button that opens the modal
    var statusDivs = document.querySelectorAll('.status');
    
-// Get the <span> element that closes the modal
-// var span = document.getElementsByClassName("close")[0];
 
 // When the user clicks on the status div, open the modal
 statusDivs.forEach(function(statusDiv) {
@@ -103,3 +101,36 @@ window.onclick = function(event) {
         modal.style.display = "none";
     }
 }
+
+var toggleState = false;
+
+function toggleDeleteOption() {
+
+    var deleteButtons = document.getElementsByClassName('delete-button');
+    var editButton = document.getElementById('editButton');
+
+    if (toggleState) {
+        for (var i = 0; i < deleteButtons.length; i++) {
+            deleteButtons[i].style.display = 'none'; 
+        }
+        editButton.innerText = 'Delete Appointment';
+    }
+    else {
+        for (var i = 0; i < deleteButtons.length; i++) {
+            deleteButtons[i].style.display = 'inline-block'; 
+        }
+        editButton.innerText = 'Done';
+    }
+
+    toggleState = !toggleState;
+}
+
+document.getElementById('editButton').addEventListener('click', toggleDeleteOption);
+
+
+function deleteAppointment(id) {
+    // Confirm deletion with the user (optional)
+    if (confirm("Are you sure you want to delete this appointment?")) {
+      window.location.href = "admin-dashboard.php?id=" + id;
+    }
+  }
