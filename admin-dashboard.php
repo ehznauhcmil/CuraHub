@@ -6,6 +6,17 @@ session_start();
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
+if (isset($_GET['id'])) {
+    $appointmentId = $_GET['id'];
+    
+    $sql = "DELETE FROM appointments WHERE appointment_id = '$appointmentId'";
+        if ($connect->query($sql) === TRUE) {
+            // echo "Status updated successfully";
+        } else {
+            echo "Error updating status: " . $connect->error;
+        }
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -135,7 +146,11 @@ ini_set('display_errors', 1);
         <!-- appointments -->
         <div class="appointment-section" id="appointments">
 
-            <h3>Upcoming Appointments</h3>
+            <div class = "row">
+                <h3 class="display: inline-block;">Upcoming Appointments</h3>
+                <div class="spacer"></div>
+                <button class="edit-button" id="editButton" name="edit-button">Delete Appointment</button>
+            </div>
             <div class="upcoming-section" id="upcoming-section">
                 <div class="appointment-fields">
                     <span>Status</span>
@@ -176,6 +191,10 @@ ini_set('display_errors', 1);
                                     </span>
                                     <span style="font-size: 20px"><?php echo $row['date']; ?></span>
                                 </div>
+                                <button class = "delete-button" 
+                                    onclick="deleteAppointment(<?php echo $row['appointment_id']; ?>)">
+                                    Delete
+                                </button>
                             </div>
                             <?php
                             $count++;
@@ -206,6 +225,10 @@ ini_set('display_errors', 1);
                                     </span>
                                     <span style="font-size: 20px"><?php echo $row['date']; ?></span>
                                 </div>
+                                <button class = "delete-button" 
+                                    onclick="deleteAppointment(<?php echo $row['appointment_id']; ?>)">
+                                    Delete
+                                </button>
                             </div>
                             <?php
                         }
