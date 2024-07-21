@@ -40,7 +40,7 @@ function loadMoreAppointments(status) {
 
 document.getElementById("logoutButton").addEventListener("click", function() {
 
-        window.location.href = "login.php";
+        window.location.href = "logout.php";
 });
 
 document.addEventListener('DOMContentLoaded', function() {
