@@ -161,9 +161,9 @@ if (isset($_GET['id'])) {
 
                 <!-- Details Container -->
                 <?php
-                if ($upcoming_results->num_rows > 0) {
+                if ($upcoming_results->num_rows > 0) { // only display if there are upcoming appointments
                     $count = 0;
-                    while ($row = $upcoming_results->fetch_assoc()) {
+                    while ($row = $upcoming_results->fetch_assoc()) { // Access each upcoming appointment using a loop
                         if ($count < 2) {
                             ?>
                             <div class="details-container">

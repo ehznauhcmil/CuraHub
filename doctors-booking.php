@@ -35,7 +35,7 @@ session_start();
             <p><a href="medication.php"><img src="resources/medication-icon.png" alt="Medication Icon"></a></p>
         </div>
         <div class="sidebar-img-container">
-            <p><a href="medical-report.php"><img src="resources/medreport-icon.png" alt="Medical Report Icon"></a>
+            <p><a href="medical-record.php"><img src="resources/medreport-icon.png" alt="Medical Report Icon"></a>
             </p>
         </div>
         <div class="sidebar-img-container">

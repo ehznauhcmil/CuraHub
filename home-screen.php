@@ -85,8 +85,8 @@ session_start();
             <div class="doctor-container">
                 <img src="images/doctor-home2.png" alt="" style="width: 30%; margin: 0px 10px 0px 10px">
                 <div>
-                    <span style="font-size: 30px">Dr. Lena White</span>
-                    <span style="font-size: 24px; color: #313131">Gynecologist</span>
+                    <span style="font-size: 30px">Dr. Karen Sun</span>
+                    <span style="font-size: 24px; color: #313131">Dermatologist</span>
                     <button class="see-profile-button">
                         See Profile
                     </button>
@@ -106,26 +106,26 @@ session_start();
         <div class="reviews">
             <div class="review-container">
                 <img src="images/Rating.png" alt="" style="width: 35%">
-                <h6>Review Title</h6>
-                <p>Review body</p>
+                <h6>Awesome Experience</h6>
+                <p>It was a really nice experience and I enjoyed it!</p>
                 <div class="reviews">
                     <img src="images/Avatar.png" alt="" style="width: 10%; margin-right: 10px">
                     <span style="display: inline-block">
-                        <div style="color: #757575">Reviewer Name</div>
-                        <div style="color: #B3B3B3">Date</div>
+                        <div style="color: #757575">Bonifacio Ronald</div>
+                        <div style="color: #B3B3B3">21st April, 2024</div>
                     </span>
                 </div>
             </div>
             <div class="spacer"></div>
             <div class="review-container">
                 <img src="images/Rating.png" alt="" style="width: 35%">
-                <h6>Review Title</h6>
-                <p>Review body</p>
+                <h6>Nice Service</h6>
+                <p>I had a great user experience throughout the process!</p>
                 <div class="reviews">
                     <img src="images/Avatar.png" alt="" style="width: 10%; margin-right: 10px">
                     <span style="display: inline-block">
-                        <div style="color: #757575">Reviewer Name</div>
-                        <div style="color: #B3B3B3">Date</div>
+                        <div style="color: #757575">Shifa Parkar</div>
+                        <div style="color: #B3B3B3">31st Jan, 2024</div>
                     </span>
                 </div>
             </div>

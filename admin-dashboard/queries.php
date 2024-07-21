@@ -2,8 +2,8 @@
 include "db-connection.php";
 
 error_reporting(E_ALL);
-     ini_set('display_errors', 1);
-     $upcoming_appointments = "SELECT 
+    ini_set('display_errors', 1);
+    $upcoming_appointments = "SELECT 
         a.user_id, 
         a.date,
         a.status, 
