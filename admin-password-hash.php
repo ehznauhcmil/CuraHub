@@ -12,5 +12,5 @@ $last_name = "Min";
 
 // Use a prepared statement to insert the hashed password into the database
 $stmt = $connect->prepare("INSERT INTO admins (admin_id, email, password, first_name, last_name) VALUES (?, ?, ?, ?, ?)");
-$stmt->bind_param("issss", $admin_id, $email, $hashedPassword, $first_name, $last_name); // Assuming the email is "cz@ch.com"
+$stmt->bind_param("issss", $admin_id, $email, $hashedPassword, $first_name, $last_name);
 $stmt->execute();
