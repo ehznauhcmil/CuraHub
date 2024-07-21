@@ -96,7 +96,7 @@
                     <button type="submit" id="login-button">SIGN UP</button><br /><br />
                     <div class="signup-link">
                         <p>
-                            Have an account already? <a href="login.php"> Log In Here</a>
+                            Have an account already? <a href="index.php"> Log In Here</a>
                         </p>
                     </div>
 
