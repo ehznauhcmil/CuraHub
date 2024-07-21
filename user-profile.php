@@ -74,7 +74,7 @@ if ($result->num_rows > 0) {
 
       <div class="profile-main">
         <div>
-          <img src="2.JPG" alt="Mehrbod Payandeh Profile Photo" class="profile-picture">
+          <img src="images/2.jpg" alt="Mehrbod Payandeh Profile Photo" class="profile-picture">
         </div>
         <div>
           <h2><?php echo $user['first_name'] . ' ' . $user['last_name']; ?></h2>
